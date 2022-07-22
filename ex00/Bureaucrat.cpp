@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 17:29:41 by esafar           ###   ########.fr       */
+/*   Updated: 2022/07/22 17:35:00 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,23 @@ Bureaucrat::~Bureaucrat( void ) {
     return ;
 }
 
-void    GradeTooLowException( int grade ) {
+std::string &Bureaucrat::getName( void ) {
+
+    return (this->_name);
+}
+
+int     Bureaucrat::getGrade( void ) {
+
+    return (this->_grade);
+}
+
+void    Bureaucrat::GradeTooLowException( int grade ) {
     
     std::cerr << "Error: grade too low." << std::endl;
     return ;
 }
 
-void    GradeTooHighException( int grade ) {
+void    Bureaucrat::GradeTooHighException( int grade ) {
     
     std::cerr << "Error: grade too high." << std::endl;
     return ;
