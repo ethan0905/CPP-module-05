@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 18:18:56 by esafar           ###   ########.fr       */
+/*   Updated: 2022/07/22 18:43:53 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat( void ) {
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade) {
 
-    std::cout << CYAN "Bureaucrat:: " GREEN "Modified constructor called" END << std::endl;
+    std::cout << CYAN "Bureaucrat:: " GREEN "Parameter constructor called" END << std::endl;
 
     try
     {
@@ -35,7 +35,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     catch( int errorCode )
     {
         if (errorCode == 0)
-            std::cout << "Sucess: value is OK." << std::endl;
+            std::cout << GREEN "Sucess: value is OK." END << std::endl;
         else if (errorCode == -1)
             GradeTooHighException();
         else if (errorCode == -2)
@@ -64,20 +64,28 @@ int     Bureaucrat::getGrade( void ) {
 
 void    Bureaucrat::GradeTooLowException( void ) {
     
-    std::cerr << "Error: grade too low." << std::endl;
+    std::cerr << RED "Error: grade too low." END << std::endl;
     return ;
 }
 
 void    Bureaucrat::GradeTooHighException( void ) {
     
-    std::cerr << "Error: grade too high." << std::endl;
+    std::cerr << RED "Error: grade too high." END << std::endl;
     return ;
 }
 
-// Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
+Bureaucrat   &Bureaucrat::operator=( Bureaucrat &rhs ) {
 
-//     std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
-//     // this->_type_ = rhs.getType();
+    std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
+    this->_name = rhs.getName();
+    this->_grade= rhs.getGrade();
 
-//     return (*this);
-// }
+    return (*this);
+}
+
+std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs) {
+
+    std::cout << WHITE << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << END << std::endl;
+    
+    return (o);
+}

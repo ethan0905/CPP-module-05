@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 18:05:20 by esafar           ###   ########.fr       */
+/*   Updated: 2022/07/22 18:40:18 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat {
         std::string &getName( void );
         int     getGrade( void );
 
-        // Bureaucrat  &operator=( Bureaucrat const &rhs );
+        Bureaucrat  &operator=( Bureaucrat &rhs );
         
     private:
         std::string _name;
@@ -47,6 +47,6 @@ class Bureaucrat {
 
 };
 
-std::ostream    &operator<<( std::ostream &o, Bureaucrat const  &rhs);
+std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs);
 
 #endif
