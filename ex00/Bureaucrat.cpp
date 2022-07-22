@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 17:35:00 by esafar           ###   ########.fr       */
+/*   Updated: 2022/07/22 17:41:12 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 Bureaucrat::Bureaucrat( void ) {
     
     std::cout << CYAN "Bureaucrat:: " GREEN "Default constructor called" END << std::endl;
+
+    return ;
+}
+
+Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade) {
+
+    std::cout << CYAN "Bureaucrat:: " GREEN "Modified constructor called" END << std::endl;
 
     return ;
 }
@@ -36,22 +43,22 @@ int     Bureaucrat::getGrade( void ) {
     return (this->_grade);
 }
 
-void    Bureaucrat::GradeTooLowException( int grade ) {
+// void    Bureaucrat::GradeTooLowException( int grade ) {
     
-    std::cerr << "Error: grade too low." << std::endl;
-    return ;
-}
+//     std::cerr << "Error: grade too low." << std::endl;
+//     return ;
+// }
 
-void    Bureaucrat::GradeTooHighException( int grade ) {
+// void    Bureaucrat::GradeTooHighException( int grade ) {
     
-    std::cerr << "Error: grade too high." << std::endl;
-    return ;
-}
+//     std::cerr << "Error: grade too high." << std::endl;
+//     return ;
+// }
 
-Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
+// Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
-    std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
-    // this->_type_ = rhs.getType();
+//     std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
+//     // this->_type_ = rhs.getType();
 
-    return (*this);
-}
+//     return (*this);
+// }
