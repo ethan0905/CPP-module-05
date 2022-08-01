@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/01 16:38:37 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/01 17:06:19 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,19 +87,35 @@ int     Bureaucrat::getGrade( void )const {
 
 void    Bureaucrat::incremGrade( void ) {
     
-    if (this->_grade > 1)
-        this->_grade -= 1;
-    else
-        std::cerr << "Error: highest possible grade reached." << std::endl;
+    try
+    {
+        if (this->_grade > 1)
+            this->_grade -= 1;
+        else
+            throw std::invalid_argument(RED "Error: incremGrade(): highest possible grade reached." END);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
     return ;
 }
 
 void    Bureaucrat::decremGrade( void ) {
 
-    if (this->_grade < 150)
-        this->_grade += 1;
-    else
-        std::cerr << "Error: lowest possible grade reached." << std::endl;
+    try
+    {
+        if (this->_grade < 150)
+            this->_grade += 1;
+        else
+            throw std::invalid_argument(RED "Error: decremGrade(): lowest possible grade reached." END);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     return ;
 }
 
