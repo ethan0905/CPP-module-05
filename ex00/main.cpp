@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/01 17:06:58 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/01 19:49:09 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,58 @@
 
 int main()
 {
-    Bureaucrat  bureau("Ethan", 20);
+    try
+    {
+        Bureaucrat  bureau("Ethan", 20);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    // std::cout << "Bureaucrat name is : [" << bureau.getName() << "]" << "\n";
-    // std::cout << "Bureaucrat grade is : [" << bureau.getGrade() << "]" << "\n";
+    try
+    {
+        Bureaucrat  A("Alex", 150);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << bureau << std::endl;
+    try
+    {
+        Bureaucrat  M("Mikael", 0);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    try
+    {
+        Bureaucrat  D("Dimitri", 151);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 
-    Bureaucrat  A("Alex", 150);
-    std::cout << A << std::endl;
 
-    Bureaucrat  M("Mikael", 2);
-    std::cout << M << std::endl;
 
-    Bureaucrat  D("Dimitri", 151);
-    std::cout << D << std::endl;
+    // A.incremGrade();
+    // std::cout << A << std::endl;
+    // A.decremGrade();
+    // std::cout << A << std::endl;
+    // A.decremGrade();
+    // std::cout << A << std::endl;
 
-    A.incremGrade();
-    std::cout << A << std::endl;
-    A.decremGrade();
-    std::cout << A << std::endl;
-    A.decremGrade();
-    std::cout << A << std::endl;
-
-    M.incremGrade();
-    std::cout << M << std::endl;
-    M.incremGrade();
-    std::cout << M << std::endl;
-    M.incremGrade();
-    std::cout << M << std::endl;
+    // M.incremGrade();
+    // std::cout << M << std::endl;
+    // M.incremGrade();
+    // std::cout << M << std::endl;
+    // M.incremGrade();
+    // std::cout << M << std::endl;
 
     return (0);
 }
