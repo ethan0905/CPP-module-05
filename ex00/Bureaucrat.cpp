@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/01 16:27:46 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/01 16:38:37 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,38 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Parametric constructor called" END << std::endl;
 
+    // try
+    // {
+    //     if (_grade < 1)
+    //         throw -1;
+    //     else if (_grade > 150)
+    //         throw -2;
+    //     else
+    //         throw 0;
+    // }
+    // catch( int errorCode )
+    // {
+    //     if (errorCode == 0)
+    //         std::cout << GREEN "Sucess: value is OK." END << std::endl;
+    //     else if (errorCode == -1)
+    //         GradeTooHighException();
+    //     else if (errorCode == -2)
+    //         GradeTooLowException();
+    // }
+
     try
     {
-        if (_grade < 1)
-            throw -1;
-        else if (_grade > 150)
-            throw -2;
-        else
-            throw 0;
+        if (this->getGrade() < 1)
+            throw std::invalid_argument(RED "Error: grade too high." END);
+        else if (this->getGrade() > 150)
+            throw std::invalid_argument(RED "Error: grade too low." END);
     }
-    catch( int errorCode )
+    catch(const std::exception& e)
     {
-        if (errorCode == 0)
-            std::cout << GREEN "Sucess: value is OK." END << std::endl;
-        else if (errorCode == -1)
-            GradeTooHighException();
-        else if (errorCode == -2)
-            GradeTooLowException();
+        std::cerr << e.what() << '\n';
     }
+    
+    
     
     return ;
 }
@@ -95,10 +109,10 @@ void    Bureaucrat::GradeTooLowException( void ) {
     return ;
 }
 
-void    Bureaucrat::GradeTooHighException( void ) {
+int    Bureaucrat::GradeTooHighException( void ) {
     
     std::cerr << RED "Error: grade too high." END << std::endl;
-    return ;
+    return -1;
 }
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
