@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/25 19:56:54 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/01 16:27:46 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat( void ) {
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade) {
 
-    std::cout << CYAN "Bureaucrat:: " GREEN "Parameter constructor called" END << std::endl;
+    std::cout << CYAN "Bureaucrat:: " GREEN "Parametric constructor called" END << std::endl;
 
     try
     {
@@ -61,14 +61,32 @@ Bureaucrat::~Bureaucrat( void ) {
     return ;
 }
 
-std::string &Bureaucrat::getName( void ) {
+const std::string &Bureaucrat::getName( void )const {
 
     return (this->_name);
 }
 
-int     Bureaucrat::getGrade( void ) {
+int     Bureaucrat::getGrade( void )const {
 
     return (this->_grade);
+}
+
+void    Bureaucrat::incremGrade( void ) {
+    
+    if (this->_grade > 1)
+        this->_grade -= 1;
+    else
+        std::cerr << "Error: highest possible grade reached." << std::endl;
+    return ;
+}
+
+void    Bureaucrat::decremGrade( void ) {
+
+    if (this->_grade < 150)
+        this->_grade += 1;
+    else
+        std::cerr << "Error: lowest possible grade reached." << std::endl;
+    return ;
 }
 
 void    Bureaucrat::GradeTooLowException( void ) {
@@ -83,11 +101,11 @@ void    Bureaucrat::GradeTooHighException( void ) {
     return ;
 }
 
-Bureaucrat   &Bureaucrat::operator=( Bureaucrat &rhs ) {
+Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
     std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
-    this->_name = rhs.getName();
     this->_grade= rhs.getGrade();
+    // this->_name = rhs.getName();
     
     return (*this);
 }

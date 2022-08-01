@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 18:54:51 by esafar           ###   ########.fr       */
+/*   Updated: 2022/07/28 13:11:22 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int main()
 {
     Bureaucrat  bureau("Ethan", 20);
 
-    std::cout << "Bureaucrat name is : [" << bureau.getName() << "]" << "\n";
-    std::cout << "Bureaucrat grade is : [" << bureau.getGrade() << "]" << "\n";
+    // std::cout << "Bureaucrat name is : [" << bureau.getName() << "]" << "\n";
+    // std::cout << "Bureaucrat grade is : [" << bureau.getGrade() << "]" << "\n";
 
     std::cout << bureau << std::endl;
 

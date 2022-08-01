@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/25 19:54:19 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/01 15:56:15 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ class Bureaucrat {
         void    GradeTooLowException( void );
         void    GradeTooHighException( void );
 
-        std::string &getName( void );
-        int     getGrade( void );
+        const std::string &getName( void )const;
+        int     getGrade( void )const;
 
-        Bureaucrat  &operator=( Bureaucrat &rhs );
+        void    incremGrade( void );
+        void    decremGrade( void );
+
+        Bureaucrat  &operator=( Bureaucrat const &rhs );
         
     private:
-        std::string _name;
+        const std::string _name;
         int _grade;
 
 };
