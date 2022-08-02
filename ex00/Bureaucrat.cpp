@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:12:01 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 17:18:27 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int     Bureaucrat::getGrade( void )const {
     return (this->_grade);
 }
 
-void    Bureaucrat::incremGrade( void ) {
+void    Bureaucrat::increaseGrade( void ) {
     
     // try
     // {
@@ -110,7 +110,7 @@ void    Bureaucrat::incremGrade( void ) {
     return ;
 }
 
-void    Bureaucrat::decremGrade( void ) {
+void    Bureaucrat::decreaseGrade( void ) {
 
     // try
     // {
@@ -137,10 +137,10 @@ const char    *Bureaucrat::GradeTooLowException::what()const throw() {
     return (RED "Error: grade too low." END);
 }
 
-const char    *Bureaucrat::GradeIsValidException::what()const throw() {
+// const char    *Bureaucrat::GradeIsValidException::what()const throw() {
     
-    return (GREEN "Success: value is OK." END);
-}
+//     return (GREEN "Success: value is OK." END);
+// }
 
 const char  *Bureaucrat::GradeTooHighException::what()const throw() {
     
