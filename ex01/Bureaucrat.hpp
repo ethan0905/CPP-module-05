@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:37:02 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:44:49 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
@@ -40,6 +41,7 @@ class Bureaucrat {
 
         void    increaseGrade( void );
         void    decreaseGrade( void );
+        bool    signForm( Form & src );
 
         Bureaucrat  &operator=( Bureaucrat const &rhs );
         

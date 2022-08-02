@@ -6,11 +6,12 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:25:38 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:43:46 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat( void ) {
     
@@ -82,6 +83,20 @@ void    Bureaucrat::decreaseGrade( void ) {
         std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
     
     return ;
+}
+
+bool    Bureaucrat::signForm( Form & src ) {
+
+    if (src.isSigned())
+    {
+        std::cout << this->getName()<< " signed " << src.getName() << std::endl;
+        return (true);
+    }
+    else
+    {
+        std::cout << this->getName()<< " couldn't sign " << src.getName() << " because of " << std::endl;
+        return (false);
+    }
 }
 
 const char    *Bureaucrat::GradeTooLowException::what()const throw() {
