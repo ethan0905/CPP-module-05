@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:49:42 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:12:43 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ class Form {
         Form( void );
         Form( std::string name, int gradeSigned, int gradeRequired );
         ~Form( void );
-
-        void    GradeTooLowException( void );
-        void    GradeTooHighException( void );
 
         //getter
         const std::string &getName( void );

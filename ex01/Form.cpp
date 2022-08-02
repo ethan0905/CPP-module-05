@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:59:07 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:24:31 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,17 @@ int   Form::getGradeRequired( void ) {
 
 void    Form::beSigned( Bureaucrat const &rhs ) {
 
-    if (rhs.getGrade() < this->getGradeRequired())
+    if (rhs.getGrade() < this->getGradeSigned())
     {
         if (this->isSigned() == false)
             this->_signed = true;
         else
             std::cerr << CYAN "Error: form has already been signed." END << std::endl;
     }
-    else if (rhs.getGrade() > this->getGradeRequired())
+    else if (rhs.getGrade() > this->getGradeSigned())
+        // std::cerr << CYAN "Error: grade too low to be signed." END << std::endl;
         throw Form::GradeTooLowException();
-    // else if (this->_signed)
-    //     throw Form::GradeTooHighException();
+        
     return ;
 }
 
@@ -76,10 +76,10 @@ const char    *Form::GradeTooLowException::what()const throw() {
     return (RED "Error: grade too low." END);
 }
 
-const char  *Form::GradeTooHighException::what()const throw() {
+// const char  *GradeTooHighException::what()const throw() {
     
-    return (RED "Error: grade too high." END);
-}
+//     return (RED "Error: grade too high." END);
+// }
 
 Form   &Form::operator=( Form const & rhs ) {
 
