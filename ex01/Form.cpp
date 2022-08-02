@@ -6,20 +6,20 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:27:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:43:34 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form( void ) {
+Form::Form( void ) : _name("default"), _gradeRequiredToSignIt(150), _gradeRequiredToExecuteIt(150) {
     
     std::cout << CYAN "Form:: " GREEN "Default constructor called" END << std::endl;
 
     return ;
 }
 
-Form::Form( std::string name, bool s_igned, const int gradeSigned, const int gradeRequired ) : _name(name), _signed(s_igned), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
+Form::Form( std::string name, int gradeSigned, int gradeRequired ) : _name(name), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
 
     std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
     

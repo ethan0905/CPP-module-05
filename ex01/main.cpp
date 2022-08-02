@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:33:21 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:43:50 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,10 @@ int main()
     Z.increaseGrade();
     std::cout << Z << std::endl;
 
-    Form    F("test", true, 50, 50);
-        
+    Form    F("test", 50, 50);
+    
+    std::cout << F.isSigned() << std::endl;
+    
     try
     {
         Bureaucrat  bureau("Ethan", 20);
