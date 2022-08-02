@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 18:43:53 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 17:25:38 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,22 @@ Bureaucrat::Bureaucrat( void ) {
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade) {
 
-    std::cout << CYAN "Bureaucrat:: " GREEN "Parameter constructor called" END << std::endl;
+    std::cout << CYAN "Bureaucrat:: " GREEN "Parametric constructor called" END << std::endl;
 
-    try
-    {
-        if (_grade < 1)
-            throw -1;
-        else if (_grade > 150)
-            throw -2;
-        else
-            throw 0;
-    }
-    catch( int errorCode )
-    {
-        if (errorCode == 0)
-            std::cout << GREEN "Sucess: value is OK." END << std::endl;
-        else if (errorCode == -1)
-            GradeTooHighException();
-        else if (errorCode == -2)
-            GradeTooLowException();
-    }
+    if (this->getGrade() < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->getGrade() > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        std::cout << GREEN "Success: value is OK." END << std::endl;
+
+    return ;
+}
+
+Bureaucrat::Bureaucrat( Bureaucrat & rhs ) {
+
+    std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
+    *this = rhs;
     
     return ;
 }
@@ -52,34 +48,62 @@ Bureaucrat::~Bureaucrat( void ) {
     return ;
 }
 
-std::string &Bureaucrat::getName( void ) {
+const std::string &Bureaucrat::getName( void )const {
 
     return (this->_name);
 }
 
-int     Bureaucrat::getGrade( void ) {
+int     Bureaucrat::getGrade( void )const {
 
     return (this->_grade);
 }
 
-void    Bureaucrat::GradeTooLowException( void ) {
+void    Bureaucrat::increaseGrade( void ) {
     
-    std::cerr << RED "Error: grade too low." END << std::endl;
+    if (this->_grade > 1)
+    {
+        this->_grade -= 1;
+        std::cout << YELLOW "Moved from " << this->_grade + 1 << " -> " << this->_grade << END << std::endl;
+    }
+    else
+        std::cerr << RED "Error: incremGrade(): highest possible grade reached." END << std::endl;
+
     return ;
 }
 
-void    Bureaucrat::GradeTooHighException( void ) {
+void    Bureaucrat::decreaseGrade( void ) {
+
+    if (this->_grade < 150)
+    {
+        this->_grade += 1;
+        std::cout << MAGENTA "Moved from " << this->_grade - 1 << " -> " << this->_grade << END << std::endl;   
+    }
+    else
+        std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
     
-    std::cerr << RED "Error: grade too high." END << std::endl;
     return ;
 }
 
-Bureaucrat   &Bureaucrat::operator=( Bureaucrat &rhs ) {
+const char    *Bureaucrat::GradeTooLowException::what()const throw() {
+    
+    return (RED "Error: grade too low." END);
+}
 
-    std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
-    this->_name = rhs.getName();
+const char  *Bureaucrat::GradeTooHighException::what()const throw() {
+    
+    return (RED "Error: grade too high." END);
+}
+
+Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
+
+    if (this->getGrade() < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->getGrade() > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        std::cout << GREEN "Success: value is OK." END << std::endl;
     this->_grade= rhs.getGrade();
-
+    
     return (*this);
 }
 

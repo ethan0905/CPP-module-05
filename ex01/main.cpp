@@ -6,29 +6,66 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 18:54:51 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:33:21 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-    Bureaucrat  bureau("Ethan", 20);
+    Bureaucrat  Z("Zoro", 3);
+    
+    std::cout << Z << std::endl;
+    Z.increaseGrade();
+    std::cout << Z << std::endl;
+    Z.decreaseGrade();
+    std::cout << Z << std::endl;
+    Z.increaseGrade();
+    std::cout << Z << std::endl;
+    Z.increaseGrade();
+    std::cout << Z << std::endl;
+    Z.increaseGrade();
+    std::cout << Z << std::endl;
 
-    std::cout << "Bureaucrat name is : [" << bureau.getName() << "]" << "\n";
-    std::cout << "Bureaucrat grade is : [" << bureau.getGrade() << "]" << "\n";
+    Form    F("test", true, 50, 50);
+        
+    try
+    {
+        Bureaucrat  bureau("Ethan", 20);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    std::cout << bureau << std::endl;
+    try
+    {
+        Bureaucrat  A("Alex", 150);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    Bureaucrat  A("Alex", 150);
-    std::cout << A << std::endl;
-
-    Bureaucrat  M("Mikael", 0);
-    std::cout << M << std::endl;
-
-    Bureaucrat  D("Dimitri", 151);
-    std::cout << D << std::endl;
+    try
+    {
+        Bureaucrat  M("Mikael", 0);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    try
+    {
+        Bureaucrat  D("Dimitri", 151);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
     return (0);
 }

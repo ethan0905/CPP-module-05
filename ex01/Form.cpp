@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/07/22 20:19:23 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:27:05 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Form::Form( void ) {
     return ;
 }
 
-Form::Form( std::string name, int grade ) : _name(name) {
+Form::Form( std::string name, bool s_igned, const int gradeSigned, const int gradeRequired ) : _name(name), _signed(s_igned), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
 
     std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
     
@@ -45,42 +45,39 @@ bool     Form::isSigned( void ) {
 
 const int   Form::getGradeSigned( void ) {
 
-    return (this->_gradeSigned);
+    return (this->_gradeRequiredToSignIt);
 }
 
 const int   Form::getGradeRequired( void ) {
 
-    return (this->_gradeRequired);
+    return (this->_gradeRequiredToExecuteIt);
 }
 
-void    Form::beSigned( Bureaucrat &rhs ) {
+// void    Form::beSigned( Bureaucrat const &rhs ) {
 
-    if (rhs.getGrade() > this->getGradeRequired())
-        this->_signed = true;
-    else if (rhs.getGrade() < this->getGradeRequired())
-        throw Form::GradeTooLowException;
-    else if (this->_signed)
-        throw Form::GradeTooHighException;
-    return ;
-}
+//     if (rhs.getGrade() > this->getGradeRequired())
+//         this->_signed = true;
+//     else if (rhs.getGrade() < this->getGradeRequired())
+//         throw Form::GradeTooLowException();
+//     else if (this->_signed)
+//         throw Form::GradeTooHighException();
+//     return ;
+// }
 
-
-void    Form::GradeTooLowException( void ) {
+const char    *Form::GradeTooLowException::what()const throw() {
     
-    std::cerr << RED "Error: grade too low." END << std::endl;
-    return ;
+    return (RED "Error: grade too low." END);
 }
 
-void    Form::GradeTooHighException( void ) {
+const char  *Form::GradeTooHighException::what()const throw() {
     
-    std::cerr << RED "Error: grade too high." END << std::endl;
-    return ;
+    return (RED "Error: grade too high." END);
 }
 
-Form   &Form::operator=( Form &rhs ) {
+Form   &Form::operator=( Form const & rhs ) {
 
     std::cout << CYAN "Form:: Copy assignement operator called" END << std::endl;
-    this->_name = rhs.getName();
+    this->_signed= rhs._signed;
 
     return (*this);
 }
