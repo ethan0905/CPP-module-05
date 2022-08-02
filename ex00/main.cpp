@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/01 19:49:09 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 17:15:22 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 int main()
 {
+    Bureaucrat  Z("Zoro", 3);
+    
+    std::cout << Z << std::endl;
+    Z.incremGrade();
+    std::cout << Z << std::endl;
+    Z.decremGrade();
+    std::cout << Z << std::endl;
+    Z.incremGrade();
+    std::cout << Z << std::endl;
+    Z.incremGrade();
+    std::cout << Z << std::endl;
+    Z.incremGrade();
+    std::cout << Z << std::endl;
+        
     try
     {
         Bureaucrat  bureau("Ethan", 20);
@@ -49,23 +63,6 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
-
-
-
-    // A.incremGrade();
-    // std::cout << A << std::endl;
-    // A.decremGrade();
-    // std::cout << A << std::endl;
-    // A.decremGrade();
-    // std::cout << A << std::endl;
-
-    // M.incremGrade();
-    // std::cout << M << std::endl;
-    // M.incremGrade();
-    // std::cout << M << std::endl;
-    // M.incremGrade();
-    // std::cout << M << std::endl;
 
     return (0);
 }

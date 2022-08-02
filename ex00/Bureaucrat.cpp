@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/01 19:49:47 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 17:12:01 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,24 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Parametric constructor called" END << std::endl;
 
-    
+    //#version 2
     // try
     // {
-        if (this->getGrade() < 1)
-            throw Bureaucrat::GradeTooHighException();
-        else if (this->getGrade() > 150)
-            throw Bureaucrat::GradeTooLowException();
-        else
-            throw Bureaucrat::GradeIsValidException();
+    if (this->getGrade() < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->getGrade() > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        std::cout << GREEN "Success: value is OK." END << std::endl;
+    // else
+    //     throw Bureaucrat::GradeIsValidException();
     // }
     // catch(const std::exception& e)
     // {
     //     std::cerr << e.what() << '\n';
     // }
     
+    //#version 1
     // try
     // {
     //     if (_grade < 1)
@@ -87,34 +90,44 @@ int     Bureaucrat::getGrade( void )const {
 
 void    Bureaucrat::incremGrade( void ) {
     
-    try
-    {
+    // try
+    // {
         if (this->_grade > 1)
+        {
             this->_grade -= 1;
+            std::cout << YELLOW "Moved from " << this->_grade + 1 << " -> " << this->_grade << END << std::endl;
+        }
         else
-            throw std::invalid_argument(RED "Error: incremGrade(): highest possible grade reached." END);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+            std::cerr << RED "Error: incremGrade(): highest possible grade reached." END << std::endl;
+        // else
+        //     throw std::invalid_argument(RED "Error: incremGrade(): highest possible grade reached." END);
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
 
     return ;
 }
 
 void    Bureaucrat::decremGrade( void ) {
 
-    try
-    {
+    // try
+    // {
         if (this->_grade < 150)
+        {
             this->_grade += 1;
+            std::cout << MAGENTA "Moved from " << this->_grade - 1 << " -> " << this->_grade << END << std::endl;   
+        }
         else
-            throw std::invalid_argument(RED "Error: decremGrade(): lowest possible grade reached." END);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+            std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
+        // else
+        //     throw std::invalid_argument(RED "Error: decremGrade(): lowest possible grade reached." END);
+    // }
+    // catch(const std::exception& e)
+    // {
+    //     std::cerr << e.what() << '\n';
+    // }
     
     return ;
 }
@@ -136,6 +149,14 @@ const char  *Bureaucrat::GradeTooHighException::what()const throw() {
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
+    if (this->getGrade() < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->getGrade() > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        std::cout << GREEN "Success: value is OK." END << std::endl;
+    // else
+    //     throw Bureaucrat::GradeIsValidException();
     std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
     this->_grade= rhs.getGrade();
     
