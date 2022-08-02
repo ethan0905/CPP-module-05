@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:42:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:49:42 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ class Form {
         void    GradeTooHighException( void );
 
         //getter
-        std::string &getName( void );
+        const std::string &getName( void );
         bool     isSigned( void );
-        const int   getGradeSigned( void );
-        const int   getGradeRequired( void );
+        int      getGradeSigned( void );
+        int      getGradeRequired( void );
 
         void    beSigned( Bureaucrat const & rhs );
         void    signForm( void );

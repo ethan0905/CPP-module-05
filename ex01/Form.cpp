@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 18:43:34 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:49:47 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Form::Form( void ) : _name("default"), _gradeRequiredToSignIt(150), _gradeRequiredToExecuteIt(150) {
     
     std::cout << CYAN "Form:: " GREEN "Default constructor called" END << std::endl;
+    this->_signed = false;
 
     return ;
 }
@@ -22,7 +23,8 @@ Form::Form( void ) : _name("default"), _gradeRequiredToSignIt(150), _gradeRequir
 Form::Form( std::string name, int gradeSigned, int gradeRequired ) : _name(name), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
 
     std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
-    
+    this->_signed = false;
+
     return ;
 }
 
@@ -33,7 +35,7 @@ Form::~Form( void ) {
     return ;
 }
 
-std::string &Form::getName( void ) {
+const std::string &Form::getName( void ) {
 
     return (this->_name);
 }
@@ -43,12 +45,12 @@ bool     Form::isSigned( void ) {
     return (this->_signed);
 }
 
-const int   Form::getGradeSigned( void ) {
+int   Form::getGradeSigned( void ) {
 
     return (this->_gradeRequiredToSignIt);
 }
 
-const int   Form::getGradeRequired( void ) {
+int   Form::getGradeRequired( void ) {
 
     return (this->_gradeRequiredToExecuteIt);
 }
