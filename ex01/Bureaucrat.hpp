@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:44:49 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:49:48 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 #define WHITE "\033[1;37m"
 
 #define LIGHTDARK "\033[1;90m"
+
+class Form;
 
 class Bureaucrat {
     

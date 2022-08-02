@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:43:59 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:50:43 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main()
         bureaucrat.decreaseGrade();
         std::cout << bureaucrat << std::endl;
 
-        Form    form("test", 1, 1);
+        Form    form("Formulaire", 1, 1);
         
         std::cout << "name: " << form.getName() << std::endl;
         std::cout << "grade required: " << form.getGradeRequired() << std::endl;
