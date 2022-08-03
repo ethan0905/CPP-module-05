@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:20:58 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 14:45:28 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Bureaucrat {
     public:
         Bureaucrat( void );
         Bureaucrat( std::string name, int grade );
-        Bureaucrat( Bureaucrat & rhs );
+        Bureaucrat( Bureaucrat const & rhs );
         ~Bureaucrat( void );
 
 

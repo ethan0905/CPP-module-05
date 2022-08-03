@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:21:18 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 15:32:44 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int main()
 {
-    Bureaucrat  Z("Zoro", 3);
-    
+    Bureaucrat  A("Zoro", 3);
+    Bureaucrat  Z(A);
+
     std::cout << Z << std::endl;
     Z.increaseGrade();
     std::cout << Z << std::endl;

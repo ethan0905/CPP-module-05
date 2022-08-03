@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 10:01:47 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:27:02 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ Form::Form( std::string name, int gradeSigned, int gradeRequired ) : _name(name)
     return ;
 }
 
+Form::Form( Form const & src ) : _name(src.getName()), _gradeRequiredToSignIt(src.getGradeSigned()), _gradeRequiredToExecuteIt(src.getGradeRequired()) {
+
+    std::cout << CYAN "Form:: " GREEN "Copy constructor called" END << std::endl;
+    *this = src;
+
+    return ;
+}
+
 Form::~Form( void ) {
 
     std::cout << CYAN "Form:: " RED "Destructor called" END << std::endl;
@@ -35,22 +43,22 @@ Form::~Form( void ) {
     return ;
 }
 
-const std::string &Form::getName( void ) {
+const std::string &Form::getName( void )const {
 
     return (this->_name);
 }
 
-bool     Form::isSigned( void ) {
+bool     Form::isSigned( void )const {
 
     return (this->_signed);
 }
 
-int   Form::getGradeSigned( void ) {
+int   Form::getGradeSigned( void )const {
 
     return (this->_gradeRequiredToSignIt);
 }
 
-int   Form::getGradeRequired( void ) {
+int   Form::getGradeRequired( void )const {
 
     return (this->_gradeRequiredToExecuteIt);
 }

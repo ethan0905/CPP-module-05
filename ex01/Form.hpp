@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 09:18:18 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:26:04 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,14 @@ class Form {
     public:
         Form( void );
         Form( std::string name, int gradeSigned, int gradeRequired );
+        Form( Form const & src );
         ~Form( void );
 
-        //getter
-        const std::string   &getName( void );
-        bool                isSigned( void );
-        int                 getGradeSigned( void );
-        int                 getGradeRequired( void );
+        /*---getter (always put them as const functions, in order to use copy constructor)---*/
+        const std::string   &getName( void )const;
+        bool                isSigned( void )const;
+        int                 getGradeSigned( void )const;
+        int                 getGradeRequired( void )const;
 
         void    beSigned( Bureaucrat const & rhs );
 

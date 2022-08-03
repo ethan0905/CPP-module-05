@@ -6,13 +6,13 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 17:18:27 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 15:32:05 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ) {
+Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(150) {
     
     std::cout << CYAN "Bureaucrat:: " GREEN "Default constructor called" END << std::endl;
 
@@ -63,7 +63,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat & rhs ) {
+Bureaucrat::Bureaucrat( Bureaucrat const & rhs ) {
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
     *this = rhs;
@@ -149,6 +149,9 @@ const char  *Bureaucrat::GradeTooHighException::what()const throw() {
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
+    std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
+    this->_grade= rhs.getGrade();
+    
     if (this->getGrade() < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (this->getGrade() > 150)
@@ -157,9 +160,7 @@ Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
         std::cout << GREEN "Success: value is OK." END << std::endl;
     // else
     //     throw Bureaucrat::GradeIsValidException();
-    std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
-    this->_grade= rhs.getGrade();
-    
+
     return (*this);
 }
 

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 09:37:05 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/03 15:30:31 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat( void ) {
+Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(150) {
     
     std::cout << CYAN "Bureaucrat:: " GREEN "Default constructor called" END << std::endl;
 
@@ -34,10 +34,10 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat & rhs ) {
+Bureaucrat::Bureaucrat( Bureaucrat & src ) : _name(src.getName()), _grade(getGrade()) {
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
-    *this = rhs;
+    *this = src;
     
     return ;
 }
@@ -117,14 +117,15 @@ const char  *Bureaucrat::GradeTooHighException::what()const throw() {
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
+    this->_grade= rhs.getGrade();
+    
     if (this->getGrade() < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (this->getGrade() > 150)
         throw Bureaucrat::GradeTooLowException();
     else
         std::cout << GREEN "Success: value is OK." END << std::endl;
-    this->_grade= rhs.getGrade();
-    
+
     return (*this);
 }
 
