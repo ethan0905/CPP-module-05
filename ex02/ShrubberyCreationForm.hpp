@@ -14,12 +14,9 @@ class ShrubberyCreationForm : public Form {
         ShrubberyCreationForm( ShrubberyCreationForm & rhs );
         ~ShrubberyCreationForm( void );
 
-
         const std::string &getTarget( void )const;
 
-        void    increaseGrade( void );
-        void    decreaseGrade( void );
-        bool    signForm( Form & src );
+        virtual void    createShrubberyFile( void ) = 0;
 
         ShrubberyCreationForm  &operator=( ShrubberyCreationForm const &rhs );
         

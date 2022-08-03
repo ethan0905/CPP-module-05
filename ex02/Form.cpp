@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:27:02 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 18:02:22 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,12 @@ void    Form::beSigned( Bureaucrat const &rhs ) {
         
     return ;
 }
+
+// void    Form::createShrubberyFile( void ) = 0 {
+
+//     return ;
+// }
+
 
 const char    *Form::GradeTooLowException::what()const throw() {
     

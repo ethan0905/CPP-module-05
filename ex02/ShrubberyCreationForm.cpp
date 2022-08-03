@@ -12,6 +12,8 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form("defau
 
     std::cout << CYAN "ShrubberyCreationForm:: " GREEN "Parametric constructor called" END << std::endl;
 
+    createShrubberyFile();
+
     return ;
 }
 
@@ -34,6 +36,27 @@ const std::string   &ShrubberyCreationForm::getTarget( void )const {
 
     return (this->_target);
 }
+
+#include <fstream>
+
+void    ShrubberyCreationForm::createShrubberyFile( void ) {
+
+    std::ofstream outfile;
+    std::string fileName = this->getTarget() + "__lala";
+
+    outfile.open(fileName.c_str(), std::ofstream::out);
+
+    outfile << "ARBRE ABRE" << std::endl;
+
+    outfile.close();
+
+    return ;
+}
+
+// void    printTree( void ) {
+
+//     return ;
+// }
 
 const char    *ShrubberyCreationForm::GradeTooLowException::what()const throw() {
     
