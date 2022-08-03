@@ -1,6 +1,7 @@
 
 #include "RobotomyRequestForm.hpp"
-#include <fstream>
+#include <stdlib.h> //rand() function
+// #include <fstream> //std::random_default_engine
 
 RobotomyRequestForm::RobotomyRequestForm( void ) : Form("default_shrub", 72, 45), _target("target") {
     
@@ -13,15 +14,7 @@ RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("default_s
 
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Parametric constructor called" END << std::endl;
 
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
-    robotomizeTarget();
+    // robotomizeTarget();
 
     return ;
 }
@@ -46,11 +39,11 @@ const std::string   &RobotomyRequestForm::getTarget( void )const {
     return (this->_target);
 }
 
-#include <stdlib.h>
-
 void    RobotomyRequestForm::robotomizeTarget( void ) {
 
     std::cout << WHITE "brrr.. shrrrrrrrr... shrrr brshrrrrr" END << std::endl;
+
+    /*---require c++11 version---*/
 
     // std::random_device rd;
     // std::default_random_engine eng(rd());
@@ -61,16 +54,14 @@ void    RobotomyRequestForm::robotomizeTarget( void ) {
     switch (nb)
     {
         case 0:
-            std::cout << RED << this->getTarget() << "could'nt be robotize properly." END << std::endl;
+            std::cout << RED << this->getTarget() << " couldn't be robotize properly." END << std::endl;
             break ;
         case 1:
-            std::cout << GREEN << this->getTarget() << "has been successfully robotize." END << std::endl;
+            std::cout << GREEN << this->getTarget() << " has been successfully robotize." END << std::endl;
             break ;
         default:
             break ;
     }
-
-    std::cout << "nb = " << nb << std::endl;
 
     return ;
 }

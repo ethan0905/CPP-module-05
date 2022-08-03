@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 19:27:39 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 19:45:48 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,15 @@ int main()
 
         RobotomyRequestForm test2("target2");
 
-        test2.robotomizeTarget();        
-        
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+        test2.robotomizeTarget();
+
     }
     catch(const std::exception& e)
     {
