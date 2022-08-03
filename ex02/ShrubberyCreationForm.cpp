@@ -42,11 +42,35 @@ const std::string   &ShrubberyCreationForm::getTarget( void )const {
 void    ShrubberyCreationForm::createShrubberyFile( void ) {
 
     std::ofstream outfile;
-    std::string fileName = this->getTarget() + "__lala";
+    std::string fileName = this->getTarget() + "_shrubbery";
 
     outfile.open(fileName.c_str(), std::ofstream::out);
 
-    outfile << "ARBRE ABRE" << std::endl;
+    outfile << "                .        +          .      .          ." << std::endl;
+    outfile << "        .            _        .                    ." << std::endl;
+    outfile << "    ,              /;-._,-.____        ,-----.__" << std::endl;
+    outfile << "    ((        .    (_:#::_.:::. `-._   /:, /-._, `._," << std::endl;
+    outfile << "    `                 Z   _|`\"=:_::.`.);  Z __/ /" << std::endl;
+    outfile << "                        ,    `./  Z:. `.   )==-'  ." << std::endl;
+    outfile << "        .      ., ,-=-.  ,Z, +#./`   Z:.  / /           ." << std::endl;
+    outfile << "    .           Z/:/`-' , ,Z '` ` `   ): , /_  -o" << std::endl;
+    outfile << "        .    /:+- - + +- : :- + + -:'  /(o-) Z)     ." << std::endl;
+    outfile << "    .      ,=':  Z    ` `/` ' , , ,:' `'--\".--\"---._/`7" << std::endl;
+    outfile << "    `.   (    Z: Z,-._` ` + 'Z, ,\"   _,--._,---\":.__/" << std::endl;
+    outfile << "                Z:  `  X` _| _,Z/'   .-'" << std::endl;
+    outfile << "    .               \":._:`Z____  /:'  /      .           ." << std::endl;
+    outfile << "                        Z::.  :Z/:'  /              +" << std::endl;
+    outfile << "    .                 `.:.  /:'  }      ." << std::endl;
+    outfile << "            .           ):_(:;   Z           ." << std::endl;
+    outfile << "                        /:. _/ ,  |" << std::endl;
+    outfile << "                    . (|::.     ,`                  ." << std::endl;
+    outfile << "        .                |::.    {Z " << std::endl;
+    outfile << "                        |::.Z  Z `." << std::endl;
+    outfile << "                        |:::(Z    |" << std::endl;
+    outfile << "                O       |:::/{ }  |                  (o" << std::endl;
+    outfile << "                )  ___/#Z::`/ (O \"==._____   O, (O  /`" << std::endl;
+    outfile << "            ~~~w/w~\"~~,Z` `:/,-(~`\"~~~~~~~~\"~o~Z~/~w|/~" << std::endl;
+    outfile << "          ~~~~~~~~~~~~~~~~~~~~~~~\\W~~~~~~~~~~~~Z|/~~" << std::endl;
 
     outfile.close();
 
