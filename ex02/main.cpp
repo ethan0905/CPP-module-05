@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 19:45:48 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 20:02:27 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
@@ -75,6 +76,10 @@ int main()
         test2.robotomizeTarget();
         test2.robotomizeTarget();
         test2.robotomizeTarget();
+
+        PresidentialPardonForm test3("Ethan");
+
+        test3.forgiveTarget();
 
     }
     catch(const std::exception& e)

@@ -51,7 +51,7 @@ void    RobotomyRequestForm::robotomizeTarget( void ) {
 
     int nb = rand() % 2;
 
-    switch (nb)
+    switch ( nb )
     {
         case 0:
             std::cout << RED << this->getTarget() << " couldn't be robotize properly." END << std::endl;
