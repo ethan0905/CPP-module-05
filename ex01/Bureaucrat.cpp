@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:43:46 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 09:30:31 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,13 @@ bool    Bureaucrat::signForm( Form & src ) {
     }
     else
     {
-        std::cout << this->getName()<< " couldn't sign " << src.getName() << " because of " << std::endl;
+        std::cout << this->getName()<< " couldn't sign " << src.getName() << " because ";
+        if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
+            std::cout << "grade required to sign it and execute it, was too low." << std::endl;
+        else if (this->getGrade() >= src.getGradeRequired())
+            std::cout << "grade required to execute it was too low." << std::endl;
+        else if (this->getGrade() >= src.getGradeSigned())
+            std::cout << "grade required to sign it was too low." << std::endl;
         return (false);
     }
 }

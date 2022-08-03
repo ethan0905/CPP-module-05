@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:49:27 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 09:18:18 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class Form {
         ~Form( void );
 
         //getter
-        const std::string &getName( void );
-        bool     isSigned( void );
-        int      getGradeSigned( void );
-        int      getGradeRequired( void );
+        const std::string   &getName( void );
+        bool                isSigned( void );
+        int                 getGradeSigned( void );
+        int                 getGradeRequired( void );
 
         void    beSigned( Bureaucrat const & rhs );
 
@@ -56,11 +56,10 @@ class Form {
         };
         
     private:
-        const std::string _name;
-        bool _signed;
-        const int _gradeRequiredToSignIt;
-        const int _gradeRequiredToExecuteIt;
-
+        const std::string   _name;
+        bool                _signed;
+        const int           _gradeRequiredToSignIt;
+        const int           _gradeRequiredToExecuteIt;
 };
 
 std::ostream    &operator<<( std::ostream &o, Form &rhs);
