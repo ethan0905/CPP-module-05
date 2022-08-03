@@ -10,13 +10,12 @@ class ShrubberyCreationForm : public Form {
     
     public:
         ShrubberyCreationForm( void );
-        ShrubberyCreationForm( std::string name, int grade );
+        ShrubberyCreationForm( std::string target );
         ShrubberyCreationForm( ShrubberyCreationForm & rhs );
         ~ShrubberyCreationForm( void );
 
 
-        const std::string &getName( void )const;
-        int     getGrade( void )const;
+        const std::string &getTarget( void )const;
 
         void    increaseGrade( void );
         void    decreaseGrade( void );

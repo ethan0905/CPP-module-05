@@ -1,29 +1,21 @@
 
 #include "ShrubberyCreationForm.hpp"
-#include "Form.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) {
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form("default_shrub", 145, 137), _target("target") {
     
     std::cout << CYAN "ShrubberyCreationForm:: " GREEN "Default constructor called" END << std::endl;
 
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string name, int grade ) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form("default_shrub", 145, 137), _target(target) {
 
     std::cout << CYAN "ShrubberyCreationForm:: " GREEN "Parametric constructor called" END << std::endl;
-
-    if (this->getGrade() < 1)
-        throw ShrubberyCreationForm::GradeTooHighException();
-    else if (this->getGrade() > 150)
-        throw ShrubberyCreationForm::GradeTooLowException();
-    else
-        std::cout << GREEN "Success: value is OK." END << std::endl;
 
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm & src ) {
+ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm & src ) : Form("default_shrub", 145, 137), _target(src.getTarget()) {
 
     std::cout << CYAN "ShrubberyCreationForm:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;
@@ -38,6 +30,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
     return ;
 }
 
+const std::string   &ShrubberyCreationForm::getTarget( void )const {
+
+    return (this->_target);
+}
+
 const char    *ShrubberyCreationForm::GradeTooLowException::what()const throw() {
     
     return (RED "Error: grade too low." END);
@@ -49,20 +46,13 @@ const char  *ShrubberyCreationForm::GradeTooHighException::what()const throw() {
 }
 
 ShrubberyCreationForm   &ShrubberyCreationForm::operator=( ShrubberyCreationForm const &rhs ) {
-    
-    if (this->getGrade() < 1)
-        throw ShrubberyCreationForm::GradeTooHighException();
-    else if (this->getGrade() > 150)
-        throw ShrubberyCreationForm::GradeTooLowException();
-    else
-        std::cout << GREEN "Success: value is OK." END << std::endl;
 
     return (*this);
 }
 
 std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &rhs) {
 
-    std::cout << WHITE << rhs.getName() << ", ShrubberyCreationForm grade " << rhs.getGrade() << END << std::endl;
+    // std::cout << WHITE << rhs.getName() << ", ShrubberyCreationForm grade " << rhs.getGrade() << END << std::endl;
     
     return (o);
 }
