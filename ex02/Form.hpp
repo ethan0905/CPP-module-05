@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:26:04 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 15:44:43 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Form {
         int                 getGradeSigned( void )const;
         int                 getGradeRequired( void )const;
 
-        void    beSigned( Bureaucrat const & rhs );
+        virtual void    beSigned( Bureaucrat const & rhs ) = 0;
 
         Form  &operator=( Form const & rhs );
 
