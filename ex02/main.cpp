@@ -6,13 +6,14 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 18:32:54 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 19:27:39 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
@@ -63,8 +64,10 @@ int main()
         ShrubberyCreationForm test("target");
 
         test.createShrubberyFile();
-        // form.
-        
+
+        RobotomyRequestForm test2("target2");
+
+        test2.robotomizeTarget();        
         
     }
     catch(const std::exception& e)

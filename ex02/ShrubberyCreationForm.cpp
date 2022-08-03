@@ -1,5 +1,6 @@
 
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ) : Form("default_shrub", 145, 137), _target("target") {
     
@@ -36,8 +37,6 @@ const std::string   &ShrubberyCreationForm::getTarget( void )const {
 
     return (this->_target);
 }
-
-#include <fstream>
 
 void    ShrubberyCreationForm::createShrubberyFile( void ) {
 
@@ -76,11 +75,6 @@ void    ShrubberyCreationForm::createShrubberyFile( void ) {
 
     return ;
 }
-
-// void    printTree( void ) {
-
-//     return ;
-// }
 
 const char    *ShrubberyCreationForm::GradeTooLowException::what()const throw() {
     
