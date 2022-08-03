@@ -6,7 +6,7 @@
 /*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 09:59:09 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/03 10:01:47 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ const char    *Form::GradeTooLowException::what()const throw() {
     
     return (RED "Error: grade too low." END);
 }
-
-// const char  *GradeTooHighException::what()const throw() {
-    
-//     return (RED "Error: grade too high." END);
-// }
 
 Form   &Form::operator=( Form const & rhs ) {
 
