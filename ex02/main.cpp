@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 17:30:33 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 18:32:54 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ int main()
 
         // bureaucrat.signForm(form);
 
-        Form    *form = NULL;
+        // Form    *form = NULL;
         
-        form = new ShrubberyCreationForm("target");
+        ShrubberyCreationForm test("target");
 
-        
+        test.createShrubberyFile();
+        // form.
         
         
     }

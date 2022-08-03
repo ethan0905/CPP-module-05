@@ -11,14 +11,14 @@ class ShrubberyCreationForm : public Form {
     public:
         ShrubberyCreationForm( void );
         ShrubberyCreationForm( std::string target );
-        ShrubberyCreationForm( ShrubberyCreationForm & rhs );
+        ShrubberyCreationForm( ShrubberyCreationForm & src );
         ~ShrubberyCreationForm( void );
 
         const std::string &getTarget( void )const;
 
-        virtual void    createShrubberyFile( void ) = 0;
+        void    createShrubberyFile( void );
 
-        ShrubberyCreationForm  &operator=( ShrubberyCreationForm const &rhs );
+        ShrubberyCreationForm  &operator=( ShrubberyCreationForm const &src );
         
         class   GradeTooLowException : public std::exception {
             public:
@@ -33,6 +33,6 @@ class ShrubberyCreationForm : public Form {
 
 };
 
-std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &rhs);
+std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &src);
 
 #endif

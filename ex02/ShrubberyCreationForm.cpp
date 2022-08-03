@@ -68,14 +68,18 @@ const char  *ShrubberyCreationForm::GradeTooHighException::what()const throw() {
     return (RED "Error: grade too high." END);
 }
 
-ShrubberyCreationForm   &ShrubberyCreationForm::operator=( ShrubberyCreationForm const &rhs ) {
+ShrubberyCreationForm   &ShrubberyCreationForm::operator=( ShrubberyCreationForm const &src ) {
+
+    std::cout << "Operator = called." << std::endl; 
+    (void)src;
 
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &rhs) {
+std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &src) {
 
-    // std::cout << WHITE << rhs.getName() << ", ShrubberyCreationForm grade " << rhs.getGrade() << END << std::endl;
-    
+    std::cout << WHITE << src.getName() << ", ShrubberyCreationForm grade " END << std::endl;
+    (void)src;
+
     return (o);
 }
