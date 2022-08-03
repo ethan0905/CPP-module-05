@@ -6,7 +6,7 @@
 /*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 09:30:31 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/03 09:37:05 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,18 @@ bool    Bureaucrat::signForm( Form & src ) {
 
     if (src.isSigned())
     {
-        std::cout << this->getName()<< " signed " << src.getName() << std::endl;
+        std::cout << WHITE << this->getName()<< " signed " << src.getName() << END << std::endl;
         return (true);
     }
     else
     {
-        std::cout << this->getName()<< " couldn't sign " << src.getName() << " because ";
+        std::cout << WHITE <<this->getName()<< " couldn't sign " << src.getName() << " because ";
         if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to sign it and execute it, was too low." << std::endl;
+            std::cout << "grade required to sign it and execute it, was too low." END << std::endl;
         else if (this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to execute it was too low." << std::endl;
+            std::cout << "grade required to execute it was too low." END << std::endl;
         else if (this->getGrade() >= src.getGradeSigned())
-            std::cout << "grade required to sign it was too low." << std::endl;
+            std::cout << "grade required to sign it was too low." END << std::endl;
         return (false);
     }
 }

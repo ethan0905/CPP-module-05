@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:50:43 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 09:46:15 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,22 @@ int main()
         bureaucrat.decreaseGrade();
         std::cout << bureaucrat << std::endl;
 
-        Form    form("Formulaire", 1, 1);
-        
-        std::cout << "name: " << form.getName() << std::endl;
-        std::cout << "grade required: " << form.getGradeRequired() << std::endl;
-        std::cout << "grade signed: " << form.getGradeSigned() << std::endl;
-        std::cout << "signed or not: " << form.isSigned() << std::endl << std::endl;
-        
-        // form.beSigned(bureaucrat);
+        // Form    form("Formulaire", 1, 1);
+        Form    form("Formulaire", 150, 150);
 
-        // std::cout << "name: " << form.getName() << std::endl;
-        // std::cout << "grade required: " << form.getGradeRequired() << std::endl;
-        // std::cout << "grade signed: " << form.getGradeSigned() << std::endl;
-        // std::cout << "signed or not: " << form.isSigned() << std::endl << std::endl;
+        std::cout << YELLOW "Name: " << form.getName() << std::endl;
+        std::cout << "Grade required to execute it: " << form.getGradeRequired() << std::endl;
+        std::cout << "Grade required to sign it: " << form.getGradeSigned() << std::endl;
+        std::cout << "Already signed or not: " << form.isSigned() << END << std::endl << std::endl;
+        
+        form.beSigned(bureaucrat);
 
-        bureaucrat.signForm(form);
+        std::cout << YELLOW "Name: " << form.getName() << std::endl;
+        std::cout << "Grade required to execute it: " << form.getGradeRequired() << std::endl;
+        std::cout << "Grade required to sign it: " << form.getGradeSigned() << std::endl;
+        std::cout << "Already signed or not: " << form.isSigned() << END << std::endl << std::endl;
+
+        // bureaucrat.signForm(form);
     }
     catch(const std::exception& e)
     {

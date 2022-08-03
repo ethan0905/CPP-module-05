@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
+/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/02 19:29:59 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/03 09:59:09 by c2h6             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void    Form::beSigned( Bureaucrat const &rhs ) {
     if (rhs.getGrade() < this->getGradeSigned())
     {
         if (this->isSigned() == false)
+        {
             this->_signed = true;
+            std::cout << GREEN "Success: form has been signed successfully." END << std::endl;
+        }
         else
             std::cerr << CYAN "Error: form has already been signed." END << std::endl;
     }
