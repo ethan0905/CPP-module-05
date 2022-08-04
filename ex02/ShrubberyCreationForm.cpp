@@ -98,7 +98,7 @@ ShrubberyCreationForm   &ShrubberyCreationForm::operator=( ShrubberyCreationForm
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm &src) {
+std::ostream    &operator<<( std::ostream &o, ShrubberyCreationForm const &src) {
 
     std::cout << WHITE << src.getName() << ", ShrubberyCreationForm grade " END << std::endl;
     (void)src;

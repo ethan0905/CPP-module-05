@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 17:13:45 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:54:51 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ class Bureaucrat {
 
 };
 
-std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs);
+std::ostream    &operator<<( std::ostream &o, Bureaucrat const &rhs);
 
 #endif

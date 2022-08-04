@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:30:31 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:54:58 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs) {
+std::ostream    &operator<<( std::ostream &o, Bureaucrat const &rhs) {
 
     std::cout << WHITE << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << END << std::endl;
     

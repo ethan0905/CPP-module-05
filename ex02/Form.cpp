@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:53:23 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:54:38 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ Form   &Form::operator=( Form const & rhs ) {
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, Form &rhs) {
+std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
 
     std::cout << WHITE << "Form:: datas:" << std::endl;
     std::cout << "Name: " << rhs.getName() << std::endl;

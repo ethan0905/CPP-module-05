@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:41:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:54:45 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ class Form {
         const int           _gradeRequiredToExecuteIt;
 };
 
-std::ostream    &operator<<( std::ostream &o, Form &rhs);
+std::ostream    &operator<<( std::ostream &o, Form const &rhs);
 
 #endif
