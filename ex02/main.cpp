@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:27:11 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:51:14 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int main()
 
             Form *Robotomy = new RobotomyRequestForm("Wall-E");
             std::cout << *Robotomy << std::endl;
+            // Ethan.executeForm(*Robotomy); // test to know if executeForm function print explicit error message
             Robotomy->beSigned(CEO);
             Robotomy->execute(Ethan);
             Ethan.executeForm(*Robotomy);
@@ -103,7 +104,7 @@ int main()
             CEO.signForm(*President);
             President->execute(CEO);
 
-            std::cout << "---" << std::endl;
+            std::cout << std::endl;
 
     }
     catch(const std::exception& e)

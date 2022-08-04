@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:27:07 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:52:03 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void    Bureaucrat::signForm( Form & src ) {
     }
     else
     {
+        /*--- For debug purpose ---*/
+
         // std::cout << WHITE << "Bureaucrat:: datas:" << std::endl;
         // std::cout << "Name: " << src.getName() << std::endl;
         // std::cout << "Grade: " << this->getGrade() << std::endl;
@@ -119,6 +121,16 @@ void    Bureaucrat::signForm( Form & src ) {
 
 void    Bureaucrat::executeForm( Form const & src ) {
 
+    if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
+        std::cerr << MAGENTA << "Error: Couldn't execute " << src.getName() << " because grade required to sign it and execute it, was too low." END << std::endl;
+    else if (this->getGrade() >= src.getGradeRequired())
+        std::cerr << MAGENTA << "Error: Couldn't execute " << src.getName() << " grade required to execute it was too low." END << std::endl;
+    else if (this->getGrade() >= src.getGradeSigned())
+        std::cerr << MAGENTA << "Error: Couldn't execute " << src.getName() << " grade required to sign it was too low." END << std::endl;
+    else if (!src.isSigned())
+        std::cerr << MAGENTA << "Error: Couldn't execute " << src.getName() << " because form is not signed." END << std::endl;
+    else
+        std::cout << MAGENTA << "Success: " << this->getName() << " executed " << src.getName() << std::endl;
     src.execute(*this);
     
     return ;
