@@ -12,11 +12,11 @@ class PresidentialPardonForm : public Form {
         PresidentialPardonForm( void );
         PresidentialPardonForm( std::string target );
         PresidentialPardonForm( PresidentialPardonForm const & src );
-        ~PresidentialPardonForm( void );
+        virtual ~PresidentialPardonForm( void );
 
         const std::string &getTarget( void )const;
 
-        void    forgiveTarget( void );
+        void    execute( Bureaucrat const & executor )const;
 
         PresidentialPardonForm  &operator=( PresidentialPardonForm const &src );
         

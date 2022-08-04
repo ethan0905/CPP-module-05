@@ -5,7 +5,7 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-// class Form;
+class Form;
 
 class ShrubberyCreationForm : public Form {
     
@@ -13,11 +13,11 @@ class ShrubberyCreationForm : public Form {
         ShrubberyCreationForm( void );
         ShrubberyCreationForm( std::string target );
         ShrubberyCreationForm( ShrubberyCreationForm & src );
-        ~ShrubberyCreationForm( void );
+        virtual ~ShrubberyCreationForm( void );
 
         const std::string &getTarget( void )const;
 
-        void    createShrubberyFile( Bureaucrat const & executor );
+        void    execute( Bureaucrat const & executor )const;
 
         ShrubberyCreationForm  &operator=( ShrubberyCreationForm const &src );
         

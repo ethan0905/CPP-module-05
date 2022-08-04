@@ -12,11 +12,11 @@ class RobotomyRequestForm : public Form {
         RobotomyRequestForm( void );
         RobotomyRequestForm( std::string target );
         RobotomyRequestForm( RobotomyRequestForm const & src );
-        ~RobotomyRequestForm( void );
+        virtual ~RobotomyRequestForm( void );
 
         const std::string &getTarget( void )const;
 
-        void    robotomizeTarget( void );
+        void    execute( Bureaucrat const & executor )const;
 
         RobotomyRequestForm  &operator=( RobotomyRequestForm const &src );
         

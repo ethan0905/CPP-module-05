@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 17:43:21 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:41:05 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #define LIGHTDARK "\033[1;90m"
 
 class Bureaucrat;
+class Form;
 
 class Form {
     
@@ -44,9 +45,8 @@ class Form {
         int                 getGradeRequired( void )const;
 
         void    beSigned( Bureaucrat const & rhs );
-        // virtual void    createShrubberyFile( void ) = 0;
 
-        void    execute( Bureaucrat const & executor )const;
+        virtual void    execute( Bureaucrat const & executor )const = 0;
 
         Form  &operator=( Form const & rhs );
 

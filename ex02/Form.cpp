@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 17:42:20 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:53:23 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void    Form::execute( Bureaucrat const & executor )const {
     if (this->_signed == true && executor.getGrade() < this->getGradeRequired())
         std::cout << GREEN "Conditions are completed. Execution is proceeding [...]" END << std::endl;
     else
-        throw CannotExecuteSubFunctionException();
+        throw Form::CannotExecuteSubFunctionException();
     return ;
 }
 
@@ -117,7 +117,15 @@ Form   &Form::operator=( Form const & rhs ) {
 
 std::ostream    &operator<<( std::ostream &o, Form &rhs) {
 
-    std::cout << WHITE << rhs.getName() << ", Form grade " << END << std::endl;
-    
+    std::cout << WHITE << "Form:: datas:" << std::endl;
+    std::cout << "Name: " << rhs.getName() << std::endl;
+    std::cout << "Is form signed: ";
+    if (rhs.isSigned())
+        std::cout << "true" << std::endl;
+    else
+        std::cout << "false" << std::endl;
+    std::cout << "Grade required to sign: " << rhs.getGradeSigned() << "/150" << std::endl;
+    std::cout << "Grade required to exec: " << rhs.getGradeRequired() << "/150" << std::endl;
+
     return (o);
 }

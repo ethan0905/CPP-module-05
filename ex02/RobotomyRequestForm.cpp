@@ -3,23 +3,21 @@
 #include <stdlib.h> //rand() function
 // #include <fstream> //std::random_default_engine
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : Form("default_shrub", 72, 45), _target("target") {
+RobotomyRequestForm::RobotomyRequestForm( void ) : Form("default_robotomy", 72, 45), _target("target") {
     
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Default constructor called" END << std::endl;
 
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("default_shrub", 72, 45), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("default_robotomy", 72, 45), _target(target) {
 
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Parametric constructor called" END << std::endl;
-
-    // robotomizeTarget();
 
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form("default_shrub", 72, 45), _target(src.getTarget()) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form("default_robotomy", 72, 45), _target(src.getTarget()) {
 
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;
@@ -39,7 +37,9 @@ const std::string   &RobotomyRequestForm::getTarget( void )const {
     return (this->_target);
 }
 
-void    RobotomyRequestForm::robotomizeTarget( void ) {
+void    RobotomyRequestForm::execute( Bureaucrat const & executor )const {
+
+    Form::execute(executor);
 
     std::cout << WHITE "brrr.. shrrrrrrrr... shrrr brshrrrrr" END << std::endl;
 
