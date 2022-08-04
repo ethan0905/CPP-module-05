@@ -6,7 +6,7 @@
 #    By: esafar <esafar@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 14:59:45 by esafar            #+#    #+#              #
-#    Updated: 2022/08/03 20:02:54 by esafar           ###   ########.fr        #
+#    Updated: 2022/08/04 19:28:26 by esafar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ clean:
 	rm -f ${OBJS}
 
 fclean:
-	rm -f ${OBJS} ${NAME}
+	rm -f ${OBJS} ${NAME} *_shrubbery
 
 re:	fclean all
 

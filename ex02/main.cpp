@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:09:32 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:27:11 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ int main()
             std::cout << *Robotomy << std::endl;
             Robotomy->beSigned(CEO);
             Robotomy->execute(Ethan);
-            // Ethan.executeForm(*Robotomy);
-            // Ethan.executeForm(*Robotomy);
+            Ethan.executeForm(*Robotomy);
+            Ethan.executeForm(*Robotomy);
             
             Form *President = new PresidentialPardonForm("Ethan");
             std::cout << *President << std::endl;

@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:54:51 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:21:18 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ class Bureaucrat {
 
         void    increaseGrade( void );
         void    decreaseGrade( void );
-        bool    signForm( Form & src );
+        void    signForm( Form & src );
+
+        void    executeForm( Form const & src );
 
         Bureaucrat  &operator=( Bureaucrat const &rhs );
         

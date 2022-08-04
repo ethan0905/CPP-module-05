@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:16:26 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:27:07 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ void    Bureaucrat::decreaseGrade( void ) {
     return ;
 }
 
-bool    Bureaucrat::signForm( Form & src ) {
+void    Bureaucrat::signForm( Form & src ) {
 
     if (!src.isSigned())
     {
         src.beSigned(*this);
         std::cout << WHITE << this->getName()<< " signed " << src.getName() << END << std::endl;
-        return (true);
+        return ;
     }
     else
     {
@@ -113,9 +113,17 @@ bool    Bureaucrat::signForm( Form & src ) {
             std::cout << "grade required to execute it was too low." END << std::endl;
         else if (this->getGrade() >= src.getGradeSigned())
             std::cout << "grade required to sign it was too low." END << std::endl;
-        return (false);
+        return ;
     }
 }
+
+void    Bureaucrat::executeForm( Form const & src ) {
+
+    src.execute(*this);
+    
+    return ;
+}
+
 
 const char    *Bureaucrat::GradeTooLowException::what()const throw() {
     
