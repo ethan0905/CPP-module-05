@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:57:31 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:16:26 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,25 @@ void    Bureaucrat::decreaseGrade( void ) {
 
 bool    Bureaucrat::signForm( Form & src ) {
 
-    if (src.isSigned())
+    if (!src.isSigned())
     {
+        src.beSigned(*this);
         std::cout << WHITE << this->getName()<< " signed " << src.getName() << END << std::endl;
         return (true);
     }
     else
     {
+        // std::cout << WHITE << "Bureaucrat:: datas:" << std::endl;
+        // std::cout << "Name: " << src.getName() << std::endl;
+        // std::cout << "Grade: " << this->getGrade() << std::endl;
+        // std::cout << "Is form signed: ";
+        // if (src.isSigned())
+        //     std::cout << "true" << std::endl;
+        // else
+        //     std::cout << "false" << std::endl;
+        // std::cout << "Grade required to sign: " << src.getGradeSigned() << "/150" << std::endl;
+        // std::cout << "Grade required to exec: " << src.getGradeRequired() << "/150" END << std::endl;
+            
         std::cout << WHITE <<this->getName()<< " couldn't sign " << src.getName() << " because ";
         if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
             std::cout << "grade required to sign it and execute it, was too low." END << std::endl;

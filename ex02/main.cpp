@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:17:39 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 19:09:32 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,27 +81,27 @@ int main()
 
         // test3.forgiveTarget(bureaucrat);
 
-        	Bureaucrat supervisor("Supervisor", 1);
-            std::cout << supervisor << std::endl;
-            Bureaucrat francis("Francis", 25);
-            std::cout << francis << std::endl;
+        	Bureaucrat CEO("CEO", 1);
+            std::cout << CEO << std::endl;
+            Bureaucrat Ethan("Ethan", 25);
+            std::cout << Ethan << std::endl;
 
-            Form *shrub = new ShrubberyCreationForm("home");
-            std::cout << *shrub << std::endl;
-            shrub->beSigned(supervisor);
-            shrub->execute(francis);
+            Form *Shrubbery = new ShrubberyCreationForm("Garden");
+            std::cout << *Shrubbery << std::endl;
+            Shrubbery->beSigned(CEO);
+            Shrubbery->execute(Ethan);
 
-            Form *pres = new PresidentialPardonForm("Francis");
-            std::cout << *pres << std::endl;
-            supervisor.signForm(*pres);
-            pres->execute(supervisor);
-
-            Form *robot = new RobotomyRequestForm("Bender");
-            std::cout << *robot << std::endl;
-            robot->beSigned(supervisor);
-            robot->execute(francis);
-            // francis.executeForm(*robot);
-            // francis.executeForm(*robot);
+            Form *Robotomy = new RobotomyRequestForm("Wall-E");
+            std::cout << *Robotomy << std::endl;
+            Robotomy->beSigned(CEO);
+            Robotomy->execute(Ethan);
+            // Ethan.executeForm(*Robotomy);
+            // Ethan.executeForm(*Robotomy);
+            
+            Form *President = new PresidentialPardonForm("Ethan");
+            std::cout << *President << std::endl;
+            CEO.signForm(*President);
+            President->execute(CEO);
 
             std::cout << "---" << std::endl;
 
