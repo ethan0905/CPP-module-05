@@ -6,13 +6,13 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:54:38 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:56:40 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form( void ) : _name("default"), _gradeRequiredToSignIt(150), _gradeRequiredToExecuteIt(150) {
+Form::Form( void ) : _name("default_form"), _gradeRequiredToSignIt(150), _gradeRequiredToExecuteIt(150) {
     
     std::cout << CYAN "Form:: " GREEN "Default constructor called" END << std::endl;
     this->_signed = false;

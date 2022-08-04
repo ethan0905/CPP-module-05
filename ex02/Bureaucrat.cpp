@@ -6,14 +6,14 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:54:58 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 18:57:31 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(150) {
+Bureaucrat::Bureaucrat( void ) : _name("default_bureaucrat"), _grade(150) {
     
     std::cout << CYAN "Bureaucrat:: " GREEN "Default constructor called" END << std::endl;
 
