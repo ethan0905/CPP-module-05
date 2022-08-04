@@ -13,7 +13,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : Form("defau
 
     std::cout << CYAN "ShrubberyCreationForm:: " GREEN "Parametric constructor called" END << std::endl;
 
-    createShrubberyFile();
+    // createShrubberyFile();
 
     return ;
 }
@@ -38,7 +38,11 @@ const std::string   &ShrubberyCreationForm::getTarget( void )const {
     return (this->_target);
 }
 
-void    ShrubberyCreationForm::createShrubberyFile( void ) {
+
+
+void    ShrubberyCreationForm::createShrubberyFile( Bureaucrat const & executor ) {
+
+    this->execute(executor);
 
     std::ofstream outfile;
     std::string fileName = this->getTarget() + "_shrubbery";

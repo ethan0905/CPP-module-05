@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 18:02:22 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 17:42:20 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,25 @@ void    Form::beSigned( Bureaucrat const &rhs ) {
     return ;
 }
 
+void    Form::execute( Bureaucrat const & executor )const {
+    
+    if (this->_signed == true && executor.getGrade() < this->getGradeRequired())
+        std::cout << GREEN "Conditions are completed. Execution is proceeding [...]" END << std::endl;
+    else
+        throw CannotExecuteSubFunctionException();
+    return ;
+}
+
 // void    Form::createShrubberyFile( void ) = 0 {
 
 //     return ;
 // }
 
+
+const char    *Form::CannotExecuteSubFunctionException::what()const throw() {
+
+    return (RED "Error: form not signed or grade to low to execute sub function." END);
+}
 
 const char    *Form::GradeTooLowException::what()const throw() {
     

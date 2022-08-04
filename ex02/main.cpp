@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 20:02:27 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 17:58:13 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int main()
         
         ShrubberyCreationForm test("target");
 
-        test.createShrubberyFile();
+        test.beSigned(bureaucrat);
+        test.createShrubberyFile(bureaucrat);
 
         RobotomyRequestForm test2("target2");
 

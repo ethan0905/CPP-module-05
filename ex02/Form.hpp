@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 18:28:54 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/04 17:43:21 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ class Form {
         void    beSigned( Bureaucrat const & rhs );
         // virtual void    createShrubberyFile( void ) = 0;
 
+        void    execute( Bureaucrat const & executor )const;
+
         Form  &operator=( Form const & rhs );
 
         class   GradeTooLowException : public std::exception {
@@ -53,6 +55,10 @@ class Form {
                 virtual const char* what()const throw();
         };
         class   GradeTooHighException : public std::exception {
+            public:
+                virtual const char* what()const throw();
+        };
+        class   CannotExecuteSubFunctionException : public std::exception {
             public:
                 virtual const char* what()const throw();
         };
