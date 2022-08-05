@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: esafar <esafar@student.42.fr>              +#+  +:+       +#+         #
+#    By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/27 14:59:45 by esafar            #+#    #+#              #
-#    Updated: 2022/08/04 19:28:26 by esafar           ###   ########.fr        #
+#    Updated: 2022/08/05 11:26:37 by c2h6             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 GCC = c++
 FLAGS = -g -Wextra -Wall -Werror -std=c++98 
