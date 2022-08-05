@@ -10,14 +10,14 @@ RobotomyRequestForm::RobotomyRequestForm( void ) : Form("default_robotomy", 72, 
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("default_robotomy", 72, 45), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : Form("robotomy", 72, 45), _target(target) {
 
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Parametric constructor called" END << std::endl;
 
     return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form("default_robotomy", 72, 45), _target(src.getTarget()) {
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form("robotomy", 72, 45), _target(src.getTarget()) {
 
     std::cout << CYAN "RobotomyRequestForm:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;

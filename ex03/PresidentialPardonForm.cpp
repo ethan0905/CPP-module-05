@@ -8,14 +8,14 @@ PresidentialPardonForm::PresidentialPardonForm( void ) : Form("default_president
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ) : Form("default_president", 25, 5), _target(target) {
+PresidentialPardonForm::PresidentialPardonForm( std::string target ) : Form("president", 25, 5), _target(target) {
 
     std::cout << CYAN "PresidentialPardonForm:: " GREEN "Parametric constructor called" END << std::endl;
 
     return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form("default_president", 25, 5), _target(src.getTarget()) {
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) : Form("president", 25, 5), _target(src.getTarget()) {
 
     std::cout << CYAN "PresidentialPardonForm:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;

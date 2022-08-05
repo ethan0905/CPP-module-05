@@ -43,11 +43,8 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)const {
             dest = LookupTable[i].formType;
         }
 
-        delete LookupTable[i].formType;
+        // delete LookupTable[i].formType;
     }
-    // std::cout << (char *)LookupTable[0] << std::endl;
-    // std::cout << (char *)LookupTable[2] << std::endl;
-    // std::cout << (char *)LookupTable[4] << std::endl;
 
 	std::cout << WHITE "Form Name: " << formName << std::endl << "Form target: " << formTarget << END << std::endl;
 

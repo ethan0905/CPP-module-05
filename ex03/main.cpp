@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/05 17:55:39 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/05 19:15:58 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,58 @@ int main(int ac, char **av)
     {
         try
         {
+            Bureaucrat  Ethan("Ethan", 2);
             Intern someRandomIntern;
-            // Form* rrf;
+            Form* rrf;
             
-            // rrf = 
-            someRandomIntern.makeForm("shrubbery creation form", "Bender");
-            someRandomIntern.makeForm("robotomy request", "Bender");
-            someRandomIntern.makeForm("presidential pardon form", "Bender");
+                        /*--- shrubbery creation form test ---*/
 
+            rrf = someRandomIntern.makeForm("shrubbery creation form", "Bender");
+
+            std::cout << Ethan << std::endl;
+            std::cout << *rrf << std::endl;
+
+            rrf->beSigned(Ethan);
+
+            std::cout << *rrf << std::endl;
+
+            rrf->execute(Ethan);
+            delete rrf;
+
+            std::cout << YELLOW "============================================================" END<< std::endl;
+            
+                        /*--- robotomy request test ---*/
+            
+            rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+            std::cout << Ethan << std::endl;
+            std::cout << *rrf << std::endl;
+
+            rrf->beSigned(Ethan);
+
+            std::cout << *rrf << std::endl;
+
+            rrf->execute(Ethan);
+            delete rrf;
+
+            std::cout << YELLOW "============================================================" END<< std::endl;
+
+                        /*--- presidential pardon form test ---*/
+            
+            rrf = someRandomIntern.makeForm("presidential pardon form", "Bender");
+
+            std::cout << Ethan << std::endl;
+            std::cout << *rrf << std::endl;
+
+            rrf->beSigned(Ethan);
+
+            std::cout << *rrf << std::endl;
+
+            rrf->execute(Ethan);
+            delete rrf;
+            
+            std::cout << YELLOW "============================================================" END<< std::endl;
+            
         }
         catch(const std::exception& e)
         {
