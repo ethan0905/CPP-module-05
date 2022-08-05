@@ -11,9 +11,9 @@ class Intern {
     public:
         Intern( void );
         Intern( Intern const & src );
-        ~Intern( void );
+        virtual ~Intern( void );
 
-		Form	*makeForm(std::string formName, std::string formTarget);
+		Form	*makeForm(std::string formName, std::string formTarget)const;
 
         Intern  &operator=( Intern const &src );
         
@@ -26,6 +26,10 @@ class Intern {
                 virtual const char* what()const throw();
         };
     private:
+        typedef struct s_data{
+            std::string formName;
+            Form    *formType;
+        }              t_data;
 };
 
 std::ostream    &operator<<( std::ostream &o, Intern const &src);

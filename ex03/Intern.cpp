@@ -25,22 +25,23 @@ Intern::~Intern( void ) {
     return ;
 }
 
-Form	*Intern::makeForm(std::string formName, std::string formTarget) {
+Form	*Intern::makeForm(std::string formName, std::string formTarget)const {
 
 	Form *dest = NULL;
 
-    const void *LookupTable[6] = {
-        "shrubbery creation form", new ShrubberyCreationForm(formTarget),
-        "robotomy request", new RobotomyRequestForm(formTarget),
-        "presidential pardon form", new PresidentialPardonForm(formTarget)
+    t_data  LookupTable[6] = {
+        {"shrubbery creation form", new ShrubberyCreationForm(formTarget)},
+        {"robotomy request", new RobotomyRequestForm(formTarget)},
+        {"presidential pardon form", new PresidentialPardonForm(formTarget)}
     };
 
-    if (LookupTable[1])
-        delete ShrubberyCreationForm::LookupTable[1];
-        
-    std::cout << (char *)LookupTable[0] << std::endl;
-    std::cout << (char *)LookupTable[2] << std::endl;
-    std::cout << (char *)LookupTable[4] << std::endl;
+    for (int i = 0; i < 6; i++)
+    {
+        delete LookupTable[i].formType;
+    }
+    // std::cout << (char *)LookupTable[0] << std::endl;
+    // std::cout << (char *)LookupTable[2] << std::endl;
+    // std::cout << (char *)LookupTable[4] << std::endl;
 
 	std::cout << "Form Name: " << formName << std::endl << "Form target: " << formTarget << std::endl;
 
