@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/05 16:57:49 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/05 17:55:39 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,9 @@ int main(int ac, char **av)
             // Form* rrf;
             
             // rrf = 
+            someRandomIntern.makeForm("shrubbery creation form", "Bender");
             someRandomIntern.makeForm("robotomy request", "Bender");
+            someRandomIntern.makeForm("presidential pardon form", "Bender");
 
         }
         catch(const std::exception& e)

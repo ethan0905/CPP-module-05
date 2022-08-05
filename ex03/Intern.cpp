@@ -29,23 +29,29 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)const {
 
 	Form *dest = NULL;
 
-    t_data  LookupTable[6] = {
+    t_data  LookupTable[3] = {
         {"shrubbery creation form", new ShrubberyCreationForm(formTarget)},
         {"robotomy request", new RobotomyRequestForm(formTarget)},
         {"presidential pardon form", new PresidentialPardonForm(formTarget)}
     };
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 3; i++)
     {
+        if (formName == LookupTable[i].formName)
+        {
+            std::cout << MAGENTA "Entered in [" << i << "] with " << LookupTable[i].formName << "\n" END;
+            dest = LookupTable[i].formType;
+        }
+
         delete LookupTable[i].formType;
     }
     // std::cout << (char *)LookupTable[0] << std::endl;
     // std::cout << (char *)LookupTable[2] << std::endl;
     // std::cout << (char *)LookupTable[4] << std::endl;
 
-	std::cout << "Form Name: " << formName << std::endl << "Form target: " << formTarget << std::endl;
+	std::cout << WHITE "Form Name: " << formName << std::endl << "Form target: " << formTarget << END << std::endl;
 
-	std::cout << "Intern creates " << std::endl;
+	// std::cout << "Intern creates " << std::endl;
 	return (dest); // function shoudl return a pointer to a Form object, initialized with parameters from the function;
  }
 
