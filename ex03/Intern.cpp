@@ -1,4 +1,7 @@
 #include "Intern.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern( void ) {
     
@@ -26,6 +29,12 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget) {
 
 	Form *dest = NULL;
 
+    const char* const myLookupTable[6] = {
+        "shrubbery creation form", new ShrubberyCreationForm(formTarget),
+        "robotomy request", new RobotomyRequestForm(formTarget),
+        "presidential ", new PresidentialPardonForm(formTarget)
+    };
+    
 	std::cout << "Form Name: " << formName << std::endl << "Form target: " << formTarget << std::endl;
 
 	std::cout << "Intern creates " << std::endl;
