@@ -42,8 +42,8 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)const {
             std::cout << MAGENTA "Entered in [" << i << "] with " << LookupTable[i].formName << "\n" END;
             dest = LookupTable[i].formType;
         }
-
-        // delete LookupTable[i].formType;
+        else
+            delete LookupTable[i].formType;
     }
 
 	std::cout << WHITE "Form Name: " << formName << std::endl << "Form target: " << formTarget << END << std::endl;
