@@ -46,9 +46,16 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)const {
             delete LookupTable[i].formType;
     }
 
-	std::cout << WHITE "Form Name: " << formName << std::endl << "Form target: " << formTarget << END << std::endl;
+    if (dest == NULL)
+    {
+        std::cerr << RED "Error: could not find [" << formName << "] form name inside database." END << std::endl;
+        return (NULL);
+    }
 
-	// std::cout << "Intern creates " << std::endl;
+	// std::cout << WHITE "Form Name: " << formName << std::endl << "Form target: " << formTarget << END << std::endl;
+
+	std::cout << GREEN "Intern creates " << dest->getName() << END << std::endl;
+
 	return (dest); // function shoudl return a pointer to a Form object, initialized with parameters from the function;
  }
 

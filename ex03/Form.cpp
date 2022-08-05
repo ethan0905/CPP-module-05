@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:56:40 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/05 20:09:03 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int   Form::getGradeRequired( void )const {
 }
 
 void    Form::beSigned( Bureaucrat const &rhs ) {
+
 
     if (rhs.getGrade() < this->getGradeSigned())
     {
