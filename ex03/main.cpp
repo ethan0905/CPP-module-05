@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: c2h6 <c2h6@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/05 11:26:06 by c2h6             ###   ########.fr       */
+/*   Updated: 2022/08/05 16:57:49 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int main(int ac, char **av)
         try
         {
             Intern someRandomIntern;
-            Form* rrf;
+            // Form* rrf;
             
-            rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+            // rrf = 
+            someRandomIntern.makeForm("robotomy request", "Bender");
 
         }
         catch(const std::exception& e)

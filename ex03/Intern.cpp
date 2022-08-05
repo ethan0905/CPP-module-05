@@ -29,12 +29,19 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget) {
 
 	Form *dest = NULL;
 
-    const char* const myLookupTable[6] = {
+    const void *LookupTable[6] = {
         "shrubbery creation form", new ShrubberyCreationForm(formTarget),
         "robotomy request", new RobotomyRequestForm(formTarget),
-        "presidential ", new PresidentialPardonForm(formTarget)
+        "presidential pardon form", new PresidentialPardonForm(formTarget)
     };
-    
+
+    if (LookupTable[1])
+        delete ShrubberyCreationForm::LookupTable[1];
+        
+    std::cout << (char *)LookupTable[0] << std::endl;
+    std::cout << (char *)LookupTable[2] << std::endl;
+    std::cout << (char *)LookupTable[4] << std::endl;
+
 	std::cout << "Form Name: " << formName << std::endl << "Form target: " << formTarget << std::endl;
 
 	std::cout << "Intern creates " << std::endl;
