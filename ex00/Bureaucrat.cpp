@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 14:35:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 15:47:32 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,46 +88,52 @@ int     Bureaucrat::getGrade( void )const {
     return (this->_grade);
 }
 
+/*  Based on subject, throwing exception inside increase/decrease Grade function.
+    The program end directly after error got catched, so I decided to implement the
+    try/catch block inside the function directly, in order to keep the programme
+    testing based on main.
+    Another possibility would be to send error message on cerr. */
+
 void    Bureaucrat::increaseGrade( void ) {
     
-    // try
-    // {
+    try
+    {
         if (this->_grade > 1)
         {
             this->_grade -= 1;
             std::cout << YELLOW "Moved from " << this->_grade + 1 << " -> " << this->_grade << END << std::endl;
         }
         else
-            std::cerr << RED "Error: incremGrade(): highest possible grade reached." END << std::endl;
+            throw Bureaucrat::HighestPossibleGradeReachedException();
         // else
-        //     throw std::invalid_argument(RED "Error: incremGrade(): highest possible grade reached." END);
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+        //     std::cerr << RED "Error: incremGrade(): highest possible grade reached." END << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
     return ;
 }
 
 void    Bureaucrat::decreaseGrade( void ) {
 
-    // try
-    // {
+    try
+    {
         if (this->_grade < 150)
         {
             this->_grade += 1;
             std::cout << MAGENTA "Moved from " << this->_grade - 1 << " -> " << this->_grade << END << std::endl;   
         }
         else
-            std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
+            throw Bureaucrat::LowestPossibleGradeReachedException();
         // else
-        //     throw std::invalid_argument(RED "Error: decremGrade(): lowest possible grade reached." END);
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+            // std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
     return ;
 }
@@ -140,6 +146,16 @@ const char    *Bureaucrat::GradeTooLowException::what()const throw() {
 const char  *Bureaucrat::GradeTooHighException::what()const throw() {
     
     return (RED "Error: grade too high." END);
+}
+
+const char    *Bureaucrat::LowestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: lowest possible grade reached." END);
+}
+
+const char    *Bureaucrat::HighestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: highest possible grade reached." END);
 }
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
@@ -158,7 +174,7 @@ Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs) {
+std::ostream    &operator<<( std::ostream &o, Bureaucrat const &rhs) {
 
     std::cout << WHITE << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << END << std::endl;
     
