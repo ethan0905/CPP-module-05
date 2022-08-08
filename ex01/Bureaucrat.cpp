@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 15:52:36 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:23:54 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,15 @@ bool    Bureaucrat::signForm( Form & src ) {
     }
     else
     {
-        std::cout << WHITE <<this->getName()<< " couldn't sign " << src.getName() << " because ";
-        if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to sign it and execute it, was too low." END << std::endl;
-        else if (this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to execute it was too low." END << std::endl;
-        else if (this->getGrade() >= src.getGradeSigned())
-            std::cout << "grade required to sign it was too low." END << std::endl;
+        // std::cout << WHITE <<this->getName()<< " couldn't sign " << src.getName() << " because ";
+        if (this->getGrade() > src.getGradeSigned() && this->getGrade() > src.getGradeRequired())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to sign it and execute it, was too low." END << std::endl;
+        else if (this->getGrade() > src.getGradeRequired())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to execute it was too low." END << std::endl;
+        else if (this->getGrade() > src.getGradeSigned())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to sign it was too low." END << std::endl;
+        else
+            std::cout << WHITE << this->getName() << " is waiting for form to be signed." END << std::endl;
         return (false);
     }
 }

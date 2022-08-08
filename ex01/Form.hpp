@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 15:53:49 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:05:43 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ class Form {
             public:
                 virtual const char* what()const throw();
         };
-        
+         class   AlreadySignedException : public std::exception {
+            public:
+                virtual const char* what()const throw();
+        };       
     private:
         const std::string   _name;
         bool                _signed;

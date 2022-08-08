@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 15:55:34 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:19:02 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
     try
     {
-        Bureaucrat  bu("Zoro", 16);
+        Bureaucrat  bu("Zoro", 15);
         Bureaucrat  bureaucrat(bu);
         
         std::cout << bureaucrat << std::endl;
@@ -39,16 +39,18 @@ int main()
         std::cout << bureaucrat << std::endl;
 
         // Form    form("Formulaire", 1, 1);
-        Form    fo("Formulaire", 15, 15);
+        Form    fo("Formulaire", 50, 55);
         Form    form(fo);
 
         std::cout << form << std::endl;
+        bureaucrat.signForm(form);
         
         form.beSigned(bureaucrat);
         
         std::cout << form << std::endl;
+        bureaucrat.signForm(form);
 
-        // bureaucrat.signForm(form);
+        // form.beSigned(bureaucrat); // to test already signed exception
     }
     catch(const std::exception& e)
     {

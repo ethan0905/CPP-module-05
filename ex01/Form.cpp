@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 16:03:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:08:35 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void    Form::beSigned( Bureaucrat const &rhs ) {
             std::cout << GREEN "Success: form has been signed successfully." END << std::endl;
         }
         else
-            std::cerr << CYAN "Error: form has already been signed." END << std::endl;
+            throw Form::AlreadySignedException();
+            // std::cerr << CYAN "Error: form has already been signed." END << std::endl;
     }
     else if (rhs.getGrade() > this->getGradeSigned())
         // std::cerr << CYAN "Error: grade too low to be signed." END << std::endl;
@@ -97,6 +98,12 @@ const char    *Form::GradeTooHighException::what()const throw() {
     
     return (RED "Error: grade too high." END);
 }
+
+const char    *Form::AlreadySignedException::what()const throw() {
+    
+    return (RED "Error: form already signed." END);
+}
+
 
 Form   &Form::operator=( Form const & rhs ) {
 
