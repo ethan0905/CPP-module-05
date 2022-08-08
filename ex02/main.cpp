@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/08 16:44:08 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:56:59 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main(int ac, char **av)
             Form *Shrubbery = new ShrubberyCreationForm("Garden");
             std::cout << *Shrubbery << std::endl;
             Shrubbery->beSigned(CEO);
+            std::cout << *Shrubbery << std::endl;
             Shrubbery->execute(Ethan);
 
             delete Shrubbery;
@@ -71,6 +72,7 @@ int main(int ac, char **av)
             std::cout << *Robotomy << std::endl;
             // Ethan.executeForm(*Robotomy); // test to know if executeForm function print explicit error message
             Robotomy->beSigned(CEO);
+            std::cout << *Robotomy << std::endl;
             Robotomy->execute(Ethan);
             Ethan.executeForm(*Robotomy);
             Ethan.executeForm(*Robotomy);
@@ -90,6 +92,7 @@ int main(int ac, char **av)
             Form *President = new PresidentialPardonForm("Ethan");
             std::cout << *President << std::endl;
             CEO.signForm(*President);
+            std::cout << *President << std::endl;
             President->execute(CEO);
 
             delete President;

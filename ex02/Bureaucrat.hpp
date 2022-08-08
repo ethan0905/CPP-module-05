@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:43 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:21:18 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:49:46 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat {
     public:
         Bureaucrat( void );
         Bureaucrat( std::string name, int grade );
-        Bureaucrat( Bureaucrat & rhs );
+        Bureaucrat( Bureaucrat const & rhs );
         ~Bureaucrat( void );
 
 
@@ -54,6 +54,14 @@ class Bureaucrat {
                 virtual const char* what()const throw();
         };
         class   GradeTooHighException : public std::exception {
+            public:
+                virtual const char* what()const throw();
+        };
+        class   LowestPossibleGradeReachedException : public std::exception {
+            public:
+                virtual const char* what()const throw();
+        };
+        class   HighestPossibleGradeReachedException : public std::exception {
             public:
                 virtual const char* what()const throw();
         };

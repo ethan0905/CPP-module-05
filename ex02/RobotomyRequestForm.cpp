@@ -39,6 +39,7 @@ const std::string   &RobotomyRequestForm::getTarget( void )const {
 
 void    RobotomyRequestForm::execute( Bureaucrat const & executor )const {
 
+    srand(time(NULL));
     Form::execute(executor);
 
     std::cout << WHITE "brrr.. shrrrrrrrr... shrrr brshrrrrr" END << std::endl;
