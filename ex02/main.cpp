@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 17:19:36 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:55:51 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:44:08 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,46 +24,6 @@ int main(int ac, char **av)
     {
         try
         {
-            // Bureaucrat  bu("Zoro", 3);
-            // Bureaucrat  bureaucrat(bu);
-            
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.increaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.decreaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.increaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.increaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.increaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.decreaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.decreaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.decreaseGrade();
-            // std::cout << bureaucrat << std::endl;
-            // bureaucrat.decreaseGrade();
-            // std::cout << bureaucrat << std::endl;
-
-            // // Form    fo("Formulaire", 15, 15);
-            // // Form    form(fo);
-
-            // // std::cout << YELLOW "Name: " << form.getName() << std::endl;
-            // // std::cout << "Grade required to execute it: " << form.getGradeRequired() << std::endl;
-            // // std::cout << "Grade required to sign it: " << form.getGradeSigned() << std::endl;
-            // // std::cout << "Already signed or not: " << form.isSigned() << END << std::endl << std::endl;
-            
-            // // form.beSigned(bureaucrat);
-
-            // // std::cout << YELLOW "Name: " << form.getName() << std::endl;
-            // // std::cout << "Grade required to execute it: " << form.getGradeRequired() << std::endl;
-            // // std::cout << "Grade required to sign it: " << form.getGradeSigned() << std::endl;
-            // // std::cout << "Already signed or not: " << form.isSigned() << END << std::endl << std::endl;
-
-            // // bureaucrat.signForm(form);
-
             // Form    *form;
 
             // form = new ShrubberyCreationForm form1;
@@ -95,6 +55,18 @@ int main(int ac, char **av)
             Shrubbery->beSigned(CEO);
             Shrubbery->execute(Ethan);
 
+            delete Shrubbery;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        try
+        {
+            Bureaucrat CEO("CEO", 1);
+            Bureaucrat Ethan("Ethan", 25);
+
             Form *Robotomy = new RobotomyRequestForm("Wall-E");
             std::cout << *Robotomy << std::endl;
             // Ethan.executeForm(*Robotomy); // test to know if executeForm function print explicit error message
@@ -103,13 +75,26 @@ int main(int ac, char **av)
             Ethan.executeForm(*Robotomy);
             Ethan.executeForm(*Robotomy);
             
+            delete Robotomy;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        try
+        {
+            Bureaucrat CEO("CEO", 1);
+            Bureaucrat Ethan("Ethan", 25);
+            
             Form *President = new PresidentialPardonForm("Ethan");
             std::cout << *President << std::endl;
             CEO.signForm(*President);
             President->execute(CEO);
 
-            std::cout << std::endl;
+            delete President;
 
+            std::cout << std::endl;
         }
         catch(const std::exception& e)
         {

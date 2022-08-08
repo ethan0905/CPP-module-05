@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:56:40 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:43:06 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Form::Form( Form const & src ) : _name(src.getName()), _gradeRequiredToSignIt(sr
 Form::~Form( void ) {
 
     std::cout << CYAN "Form:: " RED "Destructor called" END << std::endl;
-
+    
     return ;
 }
 
@@ -117,7 +117,7 @@ Form   &Form::operator=( Form const & rhs ) {
 
 std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
 
-    std::cout << WHITE << "Form:: datas:" << std::endl;
+    std::cout << YELLOW << "Form:: datas:" << std::endl;
     std::cout << "Name: " << rhs.getName() << std::endl;
     std::cout << "Is form signed: ";
     if (rhs.isSigned())
@@ -125,7 +125,7 @@ std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
     else
         std::cout << "false" << std::endl;
     std::cout << "Grade required to sign: " << rhs.getGradeSigned() << "/150" << std::endl;
-    std::cout << "Grade required to exec: " << rhs.getGradeRequired() << "/150" << std::endl;
+    std::cout << "Grade required to exec: " << rhs.getGradeRequired() << "/150" END << std::endl;
 
     return (o);
 }

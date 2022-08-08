@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 18:54:45 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:41:44 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Form {
         Form( void );
         Form( std::string name, int gradeSigned, int gradeRequired );
         Form( Form const & src );
-        ~Form( void );
+        virtual ~Form( void );
 
         /*---getter (always put them as const functions, in order to use copy constructor)---*/
         const std::string   &getName( void )const;
