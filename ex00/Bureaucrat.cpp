@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:32:05 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 14:35:05 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const & rhs ) {
+Bureaucrat::Bureaucrat( Bureaucrat const & rhs ) : _name(rhs.getName()), _grade(rhs.getGrade()) {
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
     *this = rhs;
@@ -137,11 +137,6 @@ const char    *Bureaucrat::GradeTooLowException::what()const throw() {
     return (RED "Error: grade too low." END);
 }
 
-// const char    *Bureaucrat::GradeIsValidException::what()const throw() {
-    
-//     return (GREEN "Success: value is OK." END);
-// }
-
 const char  *Bureaucrat::GradeTooHighException::what()const throw() {
     
     return (RED "Error: grade too high." END);
@@ -150,6 +145,7 @@ const char  *Bureaucrat::GradeTooHighException::what()const throw() {
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
     std::cout << CYAN "Bureaucrat:: Copy assignement operator called" END << std::endl;
+    static_cast<std::string>(this->_name)= static_cast<std::string>(rhs.getName());
     this->_grade= rhs.getGrade();
     
     if (this->getGrade() < 1)
@@ -158,8 +154,6 @@ Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
         throw Bureaucrat::GradeTooLowException();
     else
         std::cout << GREEN "Success: value is OK." END << std::endl;
-    // else
-    //     throw Bureaucrat::GradeIsValidException();
 
     return (*this);
 }
