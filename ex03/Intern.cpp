@@ -73,12 +73,12 @@ const char  *Intern::GradeTooHighException::what()const throw() {
 Intern   &Intern::operator=( Intern const &src ) {
 
     (void)src;
+
     return (*this);
 }
 
 std::ostream    &operator<<( std::ostream &o, Intern const &src) {
 
-    std::cout << WHITE << ", Intern grade " << END << std::endl;
     (void)src;
 
     return (o);

@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/05 20:09:03 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 17:02:39 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,14 @@ Form::Form( void ) : _name("default_form"), _gradeRequiredToSignIt(150), _gradeR
 
 Form::Form( std::string name, int gradeSigned, int gradeRequired ) : _name(name), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
 
-    std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
+    if (gradeSigned < 1 || gradeRequired < 1)
+        throw Form::GradeTooHighException();
+    else if (gradeSigned > 150 || gradeRequired > 150)
+        throw Form::GradeTooLowException();
+    else
+        std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
+    
     this->_signed = false;
-
-    return ;
 }
 
 Form::Form( Form const & src ) : _name(src.getName()), _gradeRequiredToSignIt(src.getGradeSigned()), _gradeRequiredToExecuteIt(src.getGradeRequired()) {
@@ -39,7 +43,7 @@ Form::Form( Form const & src ) : _name(src.getName()), _gradeRequiredToSignIt(sr
 Form::~Form( void ) {
 
     std::cout << CYAN "Form:: " RED "Destructor called" END << std::endl;
-
+    
     return ;
 }
 
@@ -65,7 +69,6 @@ int   Form::getGradeRequired( void )const {
 
 void    Form::beSigned( Bureaucrat const &rhs ) {
 
-
     if (rhs.getGrade() < this->getGradeSigned())
     {
         if (this->isSigned() == false)
@@ -74,7 +77,7 @@ void    Form::beSigned( Bureaucrat const &rhs ) {
             std::cout << GREEN "Success: form has been signed successfully." END << std::endl;
         }
         else
-            std::cerr << CYAN "Error: form has already been signed." END << std::endl;
+            throw Form::AlreadySignedException();
     }
     else if (rhs.getGrade() > this->getGradeSigned())
         // std::cerr << CYAN "Error: grade too low to be signed." END << std::endl;
@@ -92,20 +95,24 @@ void    Form::execute( Bureaucrat const & executor )const {
     return ;
 }
 
-// void    Form::createShrubberyFile( void ) = 0 {
+const char    *Form::GradeTooLowException::what()const throw() {
+    
+    return (RED "Error: grade too low." END);
+}
 
-//     return ;
-// }
+const char    *Form::GradeTooHighException::what()const throw() {
+    
+    return (RED "Error: grade too high." END);
+}
 
+const char    *Form::AlreadySignedException::what()const throw() {
+    
+    return (RED "Error: form already signed." END);
+}
 
 const char    *Form::CannotExecuteSubFunctionException::what()const throw() {
 
     return (RED "Error: form not signed or grade to low to execute sub function." END);
-}
-
-const char    *Form::GradeTooLowException::what()const throw() {
-    
-    return (RED "Error: grade too low." END);
 }
 
 Form   &Form::operator=( Form const & rhs ) {
@@ -118,7 +125,7 @@ Form   &Form::operator=( Form const & rhs ) {
 
 std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
 
-    std::cout << WHITE << "Form:: datas:" << std::endl;
+    std::cout << YELLOW << "Form:: datas:" << std::endl;
     std::cout << "Name: " << rhs.getName() << std::endl;
     std::cout << "Is form signed: ";
     if (rhs.isSigned())
@@ -126,7 +133,7 @@ std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
     else
         std::cout << "false" << std::endl;
     std::cout << "Grade required to sign: " << rhs.getGradeSigned() << "/150" << std::endl;
-    std::cout << "Grade required to exec: " << rhs.getGradeRequired() << "/150" << std::endl;
+    std::cout << "Grade required to exec: " << rhs.getGradeRequired() << "/150" END << std::endl;
 
     return (o);
 }

@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:02 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/05 17:37:47 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:58:35 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ class Form {
             public:
                 virtual const char* what()const throw();
         };
+         class   AlreadySignedException : public std::exception {
+            public:
+                virtual const char* what()const throw();
+        };    
         class   CannotExecuteSubFunctionException : public std::exception {
             public:
                 virtual const char* what()const throw();

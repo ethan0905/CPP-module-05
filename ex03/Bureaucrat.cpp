@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/04 19:53:09 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:52:10 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat & src ) : _name(src.getName()), _grade(getGrade()) {
+Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src.getName()), _grade(getGrade()) {
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;
@@ -67,8 +67,7 @@ void    Bureaucrat::increaseGrade( void ) {
         std::cout << YELLOW "Moved from " << this->_grade + 1 << " -> " << this->_grade << END << std::endl;
     }
     else
-        std::cerr << RED "Error: incremGrade(): highest possible grade reached." END << std::endl;
-
+        throw Bureaucrat::HighestPossibleGradeReachedException();
     return ;
 }
 
@@ -80,7 +79,7 @@ void    Bureaucrat::decreaseGrade( void ) {
         std::cout << MAGENTA "Moved from " << this->_grade - 1 << " -> " << this->_grade << END << std::endl;   
     }
     else
-        std::cerr << RED "Error: decremGrade(): lowest possible grade reached." END << std::endl;
+        throw Bureaucrat::LowestPossibleGradeReachedException();
     
     return ;
 }
@@ -108,13 +107,15 @@ void    Bureaucrat::signForm( Form & src ) {
         // std::cout << "Grade required to sign: " << src.getGradeSigned() << "/150" << std::endl;
         // std::cout << "Grade required to exec: " << src.getGradeRequired() << "/150" END << std::endl;
             
-        std::cout << WHITE <<this->getName()<< " couldn't sign " << src.getName() << " because ";
-        if (this->getGrade() >= src.getGradeSigned() && this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to sign it and execute it, was too low." END << std::endl;
-        else if (this->getGrade() >= src.getGradeRequired())
-            std::cout << "grade required to execute it was too low." END << std::endl;
-        else if (this->getGrade() >= src.getGradeSigned())
-            std::cout << "grade required to sign it was too low." END << std::endl;
+        if (this->getGrade() > src.getGradeSigned() && this->getGrade() > src.getGradeRequired())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to sign it and execute it, was too low." END << std::endl;
+        else if (this->getGrade() > src.getGradeRequired())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to execute it was too low." END << std::endl;
+        else if (this->getGrade() > src.getGradeSigned())
+            std::cout << WHITE << this->getName()<< " couldn't sign " << src.getName() << " because grade required to sign it was too low." END << std::endl;
+        else
+            std::cout << WHITE << this->getName() << " is waiting for form to be signed." END << std::endl;
+
         return ;
     }
 }
@@ -144,6 +145,16 @@ const char    *Bureaucrat::GradeTooLowException::what()const throw() {
 const char  *Bureaucrat::GradeTooHighException::what()const throw() {
     
     return (RED "Error: grade too high." END);
+}
+
+const char    *Bureaucrat::LowestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: lowest possible grade reached." END);
+}
+
+const char    *Bureaucrat::HighestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: highest possible grade reached." END);
 }
 
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
