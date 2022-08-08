@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 17:10:31 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:30:31 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 15:52:36 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grad
     return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat & src ) : _name(src.getName()), _grade(getGrade()) {
+Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src.getName()), _grade(getGrade()) {
 
     std::cout << CYAN "Bureaucrat:: " GREEN "Copy constructor called" END << std::endl;
     *this = src;
@@ -115,6 +115,16 @@ const char  *Bureaucrat::GradeTooHighException::what()const throw() {
     return (RED "Error: grade too high." END);
 }
 
+const char    *Bureaucrat::LowestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: lowest possible grade reached." END);
+}
+
+const char    *Bureaucrat::HighestPossibleGradeReachedException::what()const throw() {
+    
+    return (RED "Error: highest possible grade reached." END);
+}
+
 Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
 
     this->_grade= rhs.getGrade();
@@ -129,7 +139,7 @@ Bureaucrat   &Bureaucrat::operator=( Bureaucrat const &rhs ) {
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, Bureaucrat &rhs) {
+std::ostream    &operator<<( std::ostream &o, Bureaucrat const &rhs) {
 
     std::cout << WHITE << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << END << std::endl;
     

@@ -6,7 +6,7 @@
 /*   By: esafar <esafar@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 18:58:17 by esafar            #+#    #+#             */
-/*   Updated: 2022/08/03 15:27:02 by esafar           ###   ########.fr       */
+/*   Updated: 2022/08/08 16:03:05 by esafar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ Form::Form( void ) : _name("default"), _gradeRequiredToSignIt(150), _gradeRequir
 
 Form::Form( std::string name, int gradeSigned, int gradeRequired ) : _name(name), _gradeRequiredToSignIt(gradeSigned), _gradeRequiredToExecuteIt(gradeRequired) {
 
-    std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
+    if (gradeSigned < 1 || gradeRequired < 1)
+        throw Form::GradeTooHighException();
+    else if (gradeSigned > 150 || gradeRequired > 150)
+        throw Form::GradeTooLowException();
+    else
+        std::cout << CYAN "Form:: " GREEN "Parameter constructor called" END << std::endl;
+    
     this->_signed = false;
 
     return ;
@@ -65,7 +71,7 @@ int   Form::getGradeRequired( void )const {
 
 void    Form::beSigned( Bureaucrat const &rhs ) {
 
-    if (rhs.getGrade() < this->getGradeSigned())
+    if (rhs.getGrade() <= this->getGradeSigned())
     {
         if (this->isSigned() == false)
         {
@@ -87,6 +93,11 @@ const char    *Form::GradeTooLowException::what()const throw() {
     return (RED "Error: grade too low." END);
 }
 
+const char    *Form::GradeTooHighException::what()const throw() {
+    
+    return (RED "Error: grade too high." END);
+}
+
 Form   &Form::operator=( Form const & rhs ) {
 
     std::cout << CYAN "Form:: Copy assignement operator called" END << std::endl;
@@ -95,9 +106,12 @@ Form   &Form::operator=( Form const & rhs ) {
     return (*this);
 }
 
-std::ostream    &operator<<( std::ostream &o, Form &rhs) {
+std::ostream    &operator<<( std::ostream &o, Form const &rhs) {
 
-    std::cout << WHITE << rhs.getName() << ", Form grade " << END << std::endl;
-    
+    std::cout << YELLOW "Name: " << rhs.getName() << std::endl;
+    std::cout << "Grade required to execute it: " << rhs.getGradeRequired() << std::endl;
+    std::cout << "Grade required to sign it: " << rhs.getGradeSigned() << std::endl;
+    std::cout << "Already signed or not: " << rhs.isSigned() << END << std::endl << std::endl;
+            
     return (o);
 }
